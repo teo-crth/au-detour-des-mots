@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    color: white;
+    margin: 0 auto;
+    background-image: url("jinx.jpg");
+    min-height: 250px;
+
+
+}
+
+.centertext {
+    padding: 6rem;
+    text-align: center;
+}
+
+@media only screen and (min-width: 740px) {
+
+    navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem;
+        background-color: #a306b6;
+        margin: 0;
+        color: white;
+    }
+
+    ul {
+        display: flex;
+        justify-content: right;
+        text-align: right;
+        list-style-type: none;
+        gap: 1rem;
+
+
+    }
+}
+
+@media only screen and (max-width: 739px) {
+
+    navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem;
+        background-color: #a306b6;
+        margin: 0;
+        color: white;
+    }
+
+    ul {
+        display: flex;
+        justify-content: right;
+        text-align: right;
+        flex-direction: column;
+        list-style-type: none;
+        gap: 1rem;
+
+
+    }
+
+}
+
+
+
+
+
+img {
+    min-width: 250px;
+    width: flex;
+}
+
+
+
+section {
+    text-align: center;
+    max-width: 90ch;
+    margin: 0 auto;
+
+}
+
+h2 {
+    margin: 1rem;
+}
+
+article {
+    border-radius: 5%;
+    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem grey;
+    color: black;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+@media only screen and (min-width: 740px) {
+
+    .item {
+
+        display: grid;
+        grid-template-columns: repeat(3, 2fr);
+    }
+
+    .item1 {
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+}
+
+
+
+@media only screen and (max-width: 739px) {
+
+    /* la regle s'applique pour des ecrans aux tailles > 480px */
+    .item {
+
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+    }
+
+    .item1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+}
+
+
+footer {
+    padding: 0.5rem;
+    background-color: #a306b6;
+    margin: 0;
+    color: white;
+    margin-top: 2rem;
+}
