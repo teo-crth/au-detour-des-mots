@@ -1,26 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router';
 
-class Header extends Component {
-    render() {
-        return (
+const Header = () => {
+    return (
             <header>
                 <h1>Au détour des mots</h1>
                 <nav>
-                    <ul>
-                        <li>
-                            <a href="#">Accueil</a>
-                        </li>
-                        <li>
-                            <a href="#">Mes livres</a>
-                        </li>
-                        <li>
-                            <a href="#">Recherche</a>
-                        </li>
-                    </ul>
+                    <NavLink to="/" activeClassName="active">Accueil</NavLink>
+                    <NavLink to="/mes-livres" activeClassName="active">Mes livres</NavLink>
+                    <NavLink to="/recherche" activeClassName="active">Recherche</NavLink>
                 </nav>
             </header>
-        );
-    }
-}
+    );
+};
 
 export default Header;
