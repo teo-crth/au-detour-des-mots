@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router';
+import './Header.css';
 
 const Header = () => {
     return (
             <header>
-                <h1>Au détour des mots</h1>
+                <img src="../../../public/assets/img/logo-table.webp" alt="logo table avec des livres" />
                 <nav>
                     <NavLink to="/" activeClassName="active">Accueil</NavLink>
                     <NavLink to="/mes-livres" activeClassName="active">Mes livres</NavLink>

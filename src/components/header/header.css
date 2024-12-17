@@ -1,0 +1,43 @@
+:root {
+    --menu-light: #ffb700;
+    --menu-dark: #ed9901;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    max-width: 100%;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+}
+
+header img {
+    width: 50px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+nav a {
+    color: var(--menu-light);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--menu-dark);
+}

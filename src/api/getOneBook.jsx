@@ -4,7 +4,7 @@ import axios from 'axios';
 const BASE_URL = 'https://www.googleapis.com/books/v1/volumes';
 
 // Fonction pour rechercher des livres
-export const fetchBooks = async (bookId) => {
+export const fetchOneBook = async (bookId) => {
   try {
     // Requête avec axios
     const response = await axios.get(BASE_URL/{bookId});
