@@ -55,5 +55,5 @@
   
   .author-name {
       font-weight: 700;
-      color: #000000;
+      color: var(--button-dark-color);
   }
