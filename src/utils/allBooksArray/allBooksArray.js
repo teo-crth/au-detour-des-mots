@@ -1,18 +1,20 @@
-export const booksArray = [];
-
-// Fonction pour ajouter des livres à booksArray
-export const addBooksToArray = (newBooks) => {
-    // On parcourt les nouveaux livres reçus
-    newBooks.forEach((newBook) => {
-        // Vérification si le livre existe déjà dans le tableau (par exemple avec un 'id' ou 'isbn')
-        const exists = booksArray.some((book) => book.id === newBook.id); // Change 'id' en fonction de ton champ unique
-
-        // Si le livre n'existe pas déjà dans le tableau, on l'ajoute
-        if (!exists) {
-            booksArray.push(newBook);
-        }
-    });
-
-    console.log("Books added:", newBooks);
-    console.log("Current books array:", booksArray);
-};
+export const allBooks = [
+    {
+      id: 1, // 'SLIBEQAAQBAJ'
+      title: 'Le Reiki des Fleurs',
+      author: 'Yves Guéchi',
+      description: 'Le Reiki des Fleurs est une pratique énergétique douce qui utilise les propriétés curatives des fleurs pour rééquilibrer les énergies du corps et de l\'esprit. Cette méthode de guérison holistique combine la sagesse ancienne de la médecine traditionnelle chinoise et ayurvédique avec la pratique moderne du Reiki. Le Reiki des Fleurs est facile à apprendre et peut être utilisé à la fois pour soigner les autres et pour se soigner soi-même. Les fleurs sont utilisées pour leur énergie, leur couleur, leur parfum et leurs propriétés curatives. Elles sont placées sur les chakras ou les points douloureux du corps pour aider à libérer les blocages énergétiques et pour rétablir l\'équilibre dans le corps et l\'esprit. Recevez également Une vidéo pour réaliser votre initiation de Praticien en MP4 téléchargeable et Le formulaire pour obtenir votre Certificat de Praticien du Reiki des Fleurs.',
+      publishedDate: '2024-04-12',
+      pages: 110,
+      image: "http://books.google.com/books/content?id=SLIBEQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+    },
+    {
+      id: 2,
+      title: 'Book Two',
+      author: 'Author Two',
+      description: 'Description for Book Two',
+      publishedDate: '2023-08-15',
+      pages: 280,
+      image: '',
+    },
+  ];

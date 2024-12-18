@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-//import { allBooks } from '../../utils/allBooksArray';
-import './BookPage.css'; 
+import { allBooks } from '../../utils/allBooksArray/allBooksArray';
+import './BookPage.css';
+import NoFoundPage from '../404/NoFoundPage'; 
 
 const BookPage = () => {
   const { id } = useParams();
   const book = allBooks.find((b) => b.id === parseInt(id));
   const [likes, setLikes] = useState(0);
 
-  const placeholderImage = '/images/placeholder.jpg';
+  const placeholderImage = '../../public/images/placeholder.jpg';
 
   if (!book) {
-    return <h1>Livre non trouvé</h1>;
+    return <NoFoundPage />;
   }
 
   return (
@@ -26,6 +27,9 @@ const BookPage = () => {
       </p>
       <p>
         <strong>Description:</strong> {book.description}
+      </p>
+      <p>
+        <strong>Date de publication:</strong> {book.publishedDate}
       </p>
       <div>
         <button className="like-button" onClick={() => setLikes(likes + 1)}>
