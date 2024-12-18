@@ -3,13 +3,17 @@ Application de pile-à-lire pour enregistrer ses envies de lecture et trouver de
 
 ## 
 ```bash
-  npm create vite@latest
+npm create vite@latest
 ```
 
 ```bash
-  cd react-api
-  npm install
-  npm run dev
+cd react-api
+```
+```bash
+npm install
+```
+```bash
+npm run dev
 ```
 
 ```bash
