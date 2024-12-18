@@ -14,3 +14,25 @@ main h1 {
     font-size: 2.5rem;
     color: #333;
 }
+
+.home-container {
+    height: 100vh;
+    /* Prend toute la hauteur de l'écran */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url("assets/img/pexels-karolina-grabowska-5726029.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.home-container h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    /* Ajout d'une ombre pour mieux lire le texte */
+}
