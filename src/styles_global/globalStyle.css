@@ -1,0 +1,7 @@
+/* fonts */
+
+
+:root {
+    --button-light-color: orange;
+    --button-dark-color: hsl(33, 100%, 50%);
+}
