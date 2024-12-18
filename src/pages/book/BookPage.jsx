@@ -6,7 +6,7 @@ import NoFoundPage from '../404/NoFoundPage';
 
 const BookPage = () => {
   const { id } = useParams();
-  const book = allBooks.find((b) => b.id === parseInt(id));
+  const book = allBooks.find((b) => b.id == id);
   const [likes, setLikes] = useState(0);
 
   const placeholderImage = '../../public/images/placeholder.jpg';
