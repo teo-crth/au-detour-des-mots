@@ -1,4 +1,5 @@
 import React from 'react';
+import BooksLiked from './BooksLiked';
 
 const SectionBooksLiked = () => {
     return (

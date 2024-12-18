@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button';
+import Button from '../ui/Button';
 import './booksLiked.css';
 
 const BooksLiked = () => {
@@ -14,13 +14,12 @@ const BooksLiked = () => {
                 <div className="container-img">
                     <img src='http://books.google.com/books/content?id=dd7wEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt='book cover' />
                 </div>
-                <h3>Le jardin de l'oubli</h3>
+                <h3 className='book-title'>Le jardin de l'oubli</h3>
                 <div className="container-book-info">
-                <p className='author-tilte'>Auteur</p>
+                <p className='author-title'>Auteur</p>
                 <p className='author-name'>Auteur name</p>
-                <Button text='Ajouter' onClick={handleClick} className="book-card-button"/>
-
                 </div>
+                <Button text='Ajouter' onClick={handleClick} className="book-card-button"/>
             </div>
         </div>
     );
