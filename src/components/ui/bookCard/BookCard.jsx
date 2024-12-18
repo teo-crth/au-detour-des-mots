@@ -15,12 +15,12 @@ const BooksLiked = ({array}) => {
                 return (
                 <div className='book-card'>
                     <div className="container-img">
-                        <img src={book?.items[0].volumeInfo?.imageLinks?.thumbnail} alt={`Image du livre ${book?.items[0]?.volumeInfo?.title}`} />
+                        <img src={book?.volumeInfo?.imageLinks?.thumbnail} alt={`Image du livre ${book?.volumeInfo?.title}`} />
                     </div>
-                    <h3 className='book-title'>{book?.items[0]?.volumeInfo?.title}</h3>
+                    <h3 className='book-title'>{book?.volumeInfo?.title}</h3>
                     <div className="container-book-info">
                     <p className='author-title'>Autheur(s)</p>
-                    <p className='author-name'>{book?.items[0]?.volumeInfo?.authors}</p>
+                    <p className='author-name'>{book?.volumeInfo?.authors}</p>
                     </div>
                     <Button text='Ajouter' onClick={handleClick} className="book-card-button"/>
                 </div>
