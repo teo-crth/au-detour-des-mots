@@ -1,0 +1,12 @@
+.book-card-button {
+    padding: 5px 15px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 800;
+}
+
+.book-card-button:hover {
+    background-color: hsl(33, 100%, 50%);
+}
