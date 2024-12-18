@@ -19,7 +19,7 @@ const BooksLiked = ({array}) => {
                     </div>
                     <h3 className='book-title'>{book?.volumeInfo?.title}</h3>
                     <div className="container-book-info">
-                    <p className='author-title'>Autheur(s)</p>
+                    <p className='author-title'>Auteur(s)</p>
                     <p className='author-name'>{book?.volumeInfo?.authors}</p>
                     </div>
                     <Button text='Ajouter' onClick={handleClick} className="book-card-button"/>
