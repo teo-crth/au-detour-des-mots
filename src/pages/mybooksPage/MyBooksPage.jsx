@@ -1,10 +1,12 @@
 import React from 'react';
+import SectionBooksLiked from '../../components/myBooksPageComponents/SectionBooksLiked';
 
 const MyBooksPage = () => {
     return (
-        <div>
-            
-        </div>
+    <>
+        <h1 className='mybooks-title'>Mes livres</h1>
+        < SectionBooksLiked />
+    </>
     );
 };
 
