@@ -5,6 +5,7 @@ import NoFoundPage from '../pages/404/NoFoundPage';
 import MyBooksPage from '../pages/mybooksPage/MyBooksPage';
 import SearchPage from '../pages/searchPage/SearchPage';
 import Layout from '../components/layout/Layout';
+import BookPage from '../pages/book/BookPage';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,9 @@ const router = createBrowserRouter([
         path: 'recherche',
         element: <SearchPage />,
       },
+      { path: 'book/:id', 
+      element: <BookPage /> 
+    },
     ],
   },
 ]);
