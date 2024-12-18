@@ -4,6 +4,7 @@ import SectionBooksLiked from '../../components/myBooksPageComponents/SectionBoo
 const MyBooksPage = () => {
     return (
     <>
+        <h1 className='mybooks-title'>Mes livres</h1>
         < SectionBooksLiked />
     </>
     );

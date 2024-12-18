@@ -1,5 +1,6 @@
 import React from 'react';
 import BooksLiked from './BooksLiked';
+import './sectionBooksLiked.css';
 
 const SectionBooksLiked = () => {
     return (
