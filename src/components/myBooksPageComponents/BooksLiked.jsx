@@ -1,6 +1,7 @@
 import React from 'react';
 import './booksLiked.css';
 import booksLikedArray from '../../utils/allBooksArray/booksLikedArray';
+import BookCard from '../ui/bookCard/BookCard';
 
 const BooksLiked = () => {
 

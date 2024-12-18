@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from './Button';
-import './booksCard.css';
+import Button from '../Button';
+import './bookCard.css';
 
 const BooksLiked = ({array}) => {
 
