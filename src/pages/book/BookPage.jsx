@@ -14,22 +14,22 @@ const BookPage = () => {
     if (!book) {
         return <NoFoundPage />;
     }
-
+    console.log('book', book.volumeInfo);
     return (
         <div className="book-page">
-            <h1>{book.title}</h1>
-            <img src={book.image || placeholderImage} alt={book.title} />
+            <h1>{book?.volumeInfo?.title}</h1>
+            <img src={book?.volumeInfo?.imageLinks?.thumbnail || placeholderImage} alt={`Image du livre ${book?.volumeInfo?.title}`} />
             <p>
-                <strong>Author:</strong> {book.author}
+                <strong>Author:</strong> {book?.volumeInfo?.authors}
             </p>
             <p>
-                <strong>Pages:</strong> {book.pages}
+                <strong>Pages:</strong> {book?.volumeInfo?.pageCount}
             </p>
             <p>
-                <strong>Description:</strong> {book.description}
+                <strong>Description:</strong> {book?.volumeInfo?.description}
             </p>
             <p>
-                <strong>Date de publication:</strong> {book.publishedDate}
+                <strong>Date de publication:</strong> {book?.volumeInfo?.publishedDate}
             </p>
             <div>
                 <button className="like-button" onClick={() => setLikes(likes + 1)}>
