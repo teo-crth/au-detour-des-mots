@@ -33,4 +33,10 @@ section {
     color: white;
     background-color: var(--button-light-color);
 }
+.book-list.hidden {
+    display: block; /* Les livres deviennent visibles quand 'hidden' est retiré */
+}
 
+.hidden {
+    display: none;
+}
