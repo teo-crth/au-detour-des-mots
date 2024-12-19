@@ -7,9 +7,13 @@ const BooksLiked = ({array}) => {
     
     const { handleLike, isLiked } = useContext(AppContext);
 
+    const isInArray = (book) => {
+        return isLiked.some((item) => item.id === book.id);
+    }
+    
     return (
         <div className='container-books-liked'>
-            { array.map((book) => {
+            { array.map((book, index) => {
                 return (
                 <div className='book-card'>
                     <div className="container-img">
@@ -20,7 +24,7 @@ const BooksLiked = ({array}) => {
                     <p className='author-title'>Auteur(s)</p>
                     <p className='author-name'>{book?.volumeInfo?.authors}</p>
                     </div>
-                    <Button text='Ajouter' onClick={() => handleLike(book)} className="book-card-button"/>
+                    <Button text={isInArray(book) ? 'Ajouté !' : 'Ajouter'} onClick={() => handleLike(book)} className={isInArray(book) ? "book-card-button-already-liked" : "book-card-button" }/>
                 </div>
                 )
                 })
