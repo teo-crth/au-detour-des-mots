@@ -25,17 +25,16 @@
     font-size: 1rem;
   }
   
-  /* Button like */
-  .like-button {
-    padding: 10px 20px;
-    background-color: #ff4d4d;
+  /* Button */
+  .book-card-button {
+    padding: 5px 15px;
+    background-color: orange;
     color: white;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .like-button:hover {
-    background-color: #ff3333;
-  }
+    font-weight: 800;
+}
+
+.book-card-button:hover {
+    background-color: hsl(33, 100%, 50%);
+}

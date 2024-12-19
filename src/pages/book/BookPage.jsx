@@ -33,7 +33,7 @@ const BookPage = () => {
                 <strong>Date de publication:</strong> {book?.volumeInfo?.publishedDate}
             </p>
             <div>
-                <Button text="Ajouter" className="like-button"/> 
+                <Button text="Ajouter" className="book-card-button"/> 
             </div>
         </div>
     );
