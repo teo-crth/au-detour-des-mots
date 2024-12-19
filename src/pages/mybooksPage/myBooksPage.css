@@ -3,3 +3,10 @@
   font-size: 2rem;
   font-weight: 700;
 }
+
+.mybooks-empty {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 20px;
+}

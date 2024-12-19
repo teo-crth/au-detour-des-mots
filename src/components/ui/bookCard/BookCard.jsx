@@ -1,17 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Button from '../Button';
 import './bookCard.css';
+import { AppContext } from '../../../context/context';
 
 const BooksLiked = ({array}) => {
-
-    const handleClick = () => {
-        console.log('Ajouter aux livres aimés');
-    }
+    
+    const { handleLike } = useContext(AppContext);
 
     return (
         <div className='container-books-liked'>
             { array.map((book) => {
-                console.log('book', book);
                 return (
                 <div className='book-card'>
                     <div className="container-img">
@@ -22,7 +20,7 @@ const BooksLiked = ({array}) => {
                     <p className='author-title'>Auteur(s)</p>
                     <p className='author-name'>{book?.volumeInfo?.authors}</p>
                     </div>
-                    <Button text='Ajouter' onClick={handleClick} className="book-card-button"/>
+                    <Button text='Ajouter' onClick={() => handleLike(book)} className="book-card-button"/>
                 </div>
                 )
                 })
