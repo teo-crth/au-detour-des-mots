@@ -19,7 +19,7 @@ export const AppProvider = ({ children }) => {
     };
 
   return (
-    <AppContext.Provider value={{ isLiked, handleLike }}>
+    <AppContext.Provider value={{ isLiked, handleLike, setIsLiked }}>
       {children}
     </AppContext.Provider>
   );
