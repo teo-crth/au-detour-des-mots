@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { allBooks } from '../../utils/allBooksArray/allBooksArray';
 import './BookPage.css';
 import NoFoundPage from '../404/NoFoundPage';
+import Button from '../../components/ui/Button';
 
 const BookPage = () => {
     const { id } = useParams();
@@ -32,9 +33,7 @@ const BookPage = () => {
                 <strong>Date de publication:</strong> {book?.volumeInfo?.publishedDate}
             </p>
             <div>
-                <button className="like-button" onClick={() => setLikes(likes + 1)}>
-                    👍 Like {likes}
-                </button>
+                <Button text="Ajouter" className="like-button"/> 
             </div>
         </div>
     );
