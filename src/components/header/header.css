@@ -7,37 +7,77 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    height: 100vh; 
+}
+
+#root {
+    display: flex; 
+    flex-direction: row; 
 }
 
 header {
-    max-width: 100%;
-    height: 60px;
+    width: fit-content; 
     background-color: white;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; 
+    justify-content: flex-start;
     align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 0 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); 
+    padding: 10px 0;
 }
 
 header img {
-    width: 50px;
+    width: 40px;
+    margin-bottom: 20px;
 }
 
 nav {
     display: flex;
-    align-items: center;
-    gap: 20px;
-    letter-spacing: 2px;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: bold;
 }
 
 nav a {
     color: var(--menu-light);
     text-decoration: none;
+    font-size: 14px;
 }
 
 nav a:hover {
     color: var(--menu-dark);
+}
+
+main {
+    flex: 1; 
+    padding: 0px;
+    overflow: auto; 
+    background-color: #f9f9f9; 
+}
+
+main h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.home-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url("assets/img/pexels-karolina-grabowska-5726029.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.home-container h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
 }
