@@ -5,7 +5,7 @@ import { AppContext } from '../../../context/context';
 
 const BooksLiked = ({array}) => {
     
-    const { handleLike } = useContext(AppContext);
+    const { handleLike, isLiked } = useContext(AppContext);
 
     return (
         <div className='container-books-liked'>
