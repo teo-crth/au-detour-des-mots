@@ -38,7 +38,7 @@ const BooksLiked = ({ array }) => {
                             <p className='author-title'>Auteur(s)</p>
                             <p className='author-name'>{book?.volumeInfo?.authors}</p>
                         </div>
-                        <Button text={isInArray(book) ? 'Ajouté !' : 'Ajouter'} onClick={() => handleLike(book)} className={isInArray(book) ? "book-card-button-already-liked" : "book-card-button"} />
+                        <Button text={isInArray(book) ? 'Ajouté !' : 'Ajouter'} onClick={isInArray(book) ? null : () => handleLike(book) } className={isInArray(book) ? "book-card-button-already-liked" : "book-card-button"} />
                     </div>
                 )
             })
