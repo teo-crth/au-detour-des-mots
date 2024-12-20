@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { allBooks } from '../../utils/allBooksArray/allBooksArray';
+import allBooks from '../../utils/allBooksArray/allBooksArray';
 import './BookPage.css';
 import NoFoundPage from '../404/NoFoundPage';
 import Button from '../../components/ui/Button';
