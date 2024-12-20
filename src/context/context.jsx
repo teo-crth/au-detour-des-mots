@@ -11,11 +11,7 @@ export const AppProvider = ({ children }) => {
 
   // if we like a book, we add it to the booksLikedArray
     const handleLike = (book) => {
-        setIsLiked([...isLiked, book]);  
-        console.log('book', book);
-        console.log('isLiked ALLLLLLLLLLLLL', [...isLiked, book]);
-        
-              
+      setIsLiked([...isLiked, book]);
     };
 
   return (
