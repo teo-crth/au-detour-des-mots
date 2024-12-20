@@ -1,13 +1,15 @@
 import React from 'react';
 import './Home.css';
+import SectionBestRating from '../../components/sectionBestRating/SectionBestRating';
 import SectionCategories from '../../components/sectionBookCategories/SectionCategories';
-import NewestBooks from '../../components/sectionNewestBooks/SectionNewestBooks';
+import SectionNewestBooks from '../../components/sectionNewestBooks/SectionNewestBooks';
 
 const Home = () => {
   return (
     <>
       <h1>Au détour des mots</h1>
-      < NewestBooks />
+      < SectionBestRating />
+      < SectionNewestBooks />
       < SectionCategories />
     </>
   );
