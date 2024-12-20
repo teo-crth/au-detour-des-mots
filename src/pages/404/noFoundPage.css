@@ -1,8 +1,15 @@
 
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+.giphy-embed {
+    width: 50%;
     margin-top: 2rem;
 }
