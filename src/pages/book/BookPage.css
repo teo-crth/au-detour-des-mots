@@ -33,6 +33,7 @@
   justify-content: start;
   align-items: center;
   width: 30%;
+  position: relative;
 }
 
 
@@ -54,18 +55,23 @@
   margin-bottom: 20px;
 }
 
-.book-card__heart {
+.book-card__heart_icon {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 2px;
+  left: 34px;
   cursor: pointer;
   z-index: 10;
 }
 
-.book-card__heart svg {
+.book-card__heart_icon svg {
   width: 20px;
   color: red;
   fill: red;
+}
+
+.book-card__heart_icon path {
+  stroke: white;
+  stroke-width: 1px;
 }
   
   
