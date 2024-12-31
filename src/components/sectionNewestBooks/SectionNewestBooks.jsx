@@ -24,7 +24,7 @@ const sectionNewestBooks = () => {
 
     return (
         <section>
-            <h2>les 5 dernières publications</h2>
+            <h2>Les 5 dernières publications</h2>
             <BookCard array={newestBooks} />
         </section>
     )
