@@ -4,57 +4,79 @@
     margin-top: 20px;
     flex-wrap: wrap;
     gap: 10px;
-  }
+}
   
-  .book-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #000000;
-  }
+.book-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000000;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+}
   
-  .book-card{
-  width: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px 0px rgba(130, 130, 130, 0.75);
-  padding: 1rem 0.5rem;
-  }
+.book-card {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(130, 130, 130, 0.75);
+    padding: 1rem 0.5rem;
+    position: relative;
+}
+
+.container-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
   
-  .container-img {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
-  
-  .container-img img {
-      object-fit: cover;
-      border-radius: 5px;
-      width: 50%;
-  }
-  
-  .container-book-info {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      width: 100%;
-      margin-bottom: 0.5rem;
-  }
-  
-  .author-title, .author-name {
-      font-size: 0.5rem;
-  }
-  
-  .author-title {
-      font-weight: 400;
-      color: #727272;
-  }
-  
-  .author-name {
-      font-weight: 700;
-      color: var(--button-dark-color);
-  }
+.container-img img {
+    object-fit: cover;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 0px 0px 5px 0px rgba(130, 130, 130, 0.75);
+}
+
+.container-book-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.author-title, .author-name {
+    font-size: 0.5rem;
+}
+
+.author-title {
+    font-weight: 400;
+    color: #727272;
+}
+
+.author-name {
+    font-weight: 700;
+    color: var(--button-dark-color);
+}
+
+.book-card__heart {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.book-card__heart svg {
+    width: 20px;
+    color: red;
+    fill: red;
+}

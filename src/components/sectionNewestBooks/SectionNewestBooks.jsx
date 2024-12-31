@@ -20,13 +20,12 @@ const sectionNewestBooks = () => {
 
 
     // Conserver les 10 premières entrées
-    const newestBooks = sortedBooks.slice(0, 10);
+    const newestBooks = sortedBooks.slice(0, 5);
 
     return (
         <section>
-            <h2>les 10 dernières publications</h2>
+            <h2>les 5 dernières publications</h2>
             <BookCard array={newestBooks} />
-
         </section>
     )
 

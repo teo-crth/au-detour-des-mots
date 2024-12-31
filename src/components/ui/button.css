@@ -10,3 +10,10 @@
 .book-card-button:hover {
     background-color: hsl(33, 100%, 50%);
 }
+
+.book-card-button-already-liked {
+    padding: 5px 15px;
+    background-color: white;
+    color: gray;
+    border: none;
+}

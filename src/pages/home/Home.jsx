@@ -6,9 +6,9 @@ import NewestBooks from '../../components/sectionNewestBooks/SectionNewestBooks'
 const Home = () => {
   return (
     <>
-      <h1>Au détour des mots</h1>
-      < NewestBooks />
+      <h1 className='home-title'>Au détour des mots</h1>
       < SectionCategories />
+      < NewestBooks />
     </>
   );
 };
