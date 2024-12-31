@@ -8,7 +8,7 @@ main {
     width: 100%;
 }
 
-main h1 {
+.home-title {
     text-align: center;
     margin-top: 50px;
     font-size: 2.5rem;

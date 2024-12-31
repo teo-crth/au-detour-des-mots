@@ -1,39 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import allBooks from '../../utils/allBooksArray/allBooksArray';
 import './BookPage.css';
 import NoFoundPage from '../404/NoFoundPage';
 import Button from '../../components/ui/Button';
+import { AppContext } from '../../context/context';
 
 const BookPage = () => {
     const { id } = useParams();
     const book = allBooks.find((b) => b.id == id);
-    const [likes, setLikes] = useState(0);
+    const { handleLike, isLiked, setIsLiked } = useContext(AppContext);
 
+    const isInArray = (book) => {
+        return isLiked.some((item) => item.id === book.id);
+    }
     const placeholderImage = '../../public/images/placeholder.jpg';
 
+    const handleHeartClick = (book) => {
+        console.log('heart clicked');
+        // Retirer le livre du tableau
+        setIsLiked(isLiked.filter((item) => item.id !== book.id)); // Créer un nouveau tableau sans le livre cliqué
+    }
     if (!book) {
         return <NoFoundPage />;
     }
-    console.log('book', book.volumeInfo);
+
     return (
         <div className="book-page">
-            <h1>{book?.volumeInfo?.title}</h1>
-            <img src={book?.volumeInfo?.imageLinks?.thumbnail || placeholderImage} alt={`Image du livre ${book?.volumeInfo?.title}`} />
-            <p>
-                <strong>Author:</strong> {book?.volumeInfo?.authors}
-            </p>
-            <p>
-                <strong>Pages:</strong> {book?.volumeInfo?.pageCount}
-            </p>
-            <p>
-                <strong>Description:</strong> {book?.volumeInfo?.description}
-            </p>
-            <p>
-                <strong>Date de publication:</strong> {book?.volumeInfo?.publishedDate}
-            </p>
-            <div>
-                <Button text="Ajouter" className="book-card-button"/> 
+            <div className="container-the-book">
+                    {isInArray(book) ?
+                        <span className='book-card__heart' onClick={() => handleHeartClick(book)}>
+                            <svg xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                            </svg>
+                        </span>
+                        : null}
+                <div className="container-img-bookPage">
+                    <img className='book-img' src={book?.volumeInfo?.imageLinks?.thumbnail || placeholderImage} alt={`Image du livre ${book?.volumeInfo?.title}`} />
+                    <div>
+                        <Button text={isInArray(book) ? 'Ajouté !' : "Ajouter à ma liste"} onClick={isInArray(book) ? null : () => handleLike(book)} className={isInArray(book) ? "book-card-button-already-liked" : "book-card-button"} />
+                    </div>
+                </div>
+                <div className="container-book-info">
+                    <h1>{book?.volumeInfo?.title}</h1>
+                    <div className="authors-elements">
+                        {book?.volumeInfo?.authors.map((author) => {
+                            return (
+                                <p className='paragraph-info-book'><strong>{author}</strong></p>
+                            );
+                        })}
+                    </div>
+                    <p className='paragraph-info-book'>{book?.volumeInfo?.pageCount} pages</p>
+                    <p className='paragraph-info-book'>{book?.volumeInfo?.publishedDate}</p>
+                </div>
+                <h2>Résumé :</h2>
+                <p className='resume'>{book?.volumeInfo?.description}</p>
             </div>
         </div>
     );

@@ -5,7 +5,7 @@ import SectionCategories from '../../components/sectionBookCategories/SectionCat
 const Home = () => {
     return (
       <>
-        <h1>Au détour des mots</h1>
+        <h1 className='home-title'>Au détour des mots</h1>
         < SectionCategories />
       </>
     );

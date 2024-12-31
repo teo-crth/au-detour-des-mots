@@ -1,38 +1,94 @@
 /* Conteneur principal */
 .book-page {
-    padding: 20px;
-    max-width: 600px;
-    margin: auto;
-  }
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-the-book {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+
+.container-book-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  margin-bottom: 10px;
+  width: 70%;
+  position: relative;
+}
+.container-img-bookPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 30%;
+}
+
+
+.book-page h1 {
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.container-the-book h2 {
+  font-size: 1.2rem;
+  margin-top: 50px;
+  margin-bottom: 0;
+}
   
 
-  .book-page h1 {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
+.book-img {
+  width: 65%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
 
-  .book-page img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
+.book-card__heart {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.book-card__heart svg {
+  width: 20px;
+  color: red;
+  fill: red;
+}
   
   
-  .book-page p {
-    margin: 10px 0;
-    font-size: 1rem;
-  }
-  
-  /* Button */
-  .book-card-button {
-    padding: 5px 15px;
-    background-color: orange;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: 800;
+.book-page .paragraph-info-book {
+  font-size: 1rem;
+  text-align: left;
+  margin: 0px;
+  color: #4b4b4b;
+}
+
+.resume {
+  font-size: 1rem;
+  text-align: justify;
+}
+
+/* Button */
+.book-card-button {
+  padding: 5px 15px;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 800;
 }
 
 .book-card-button:hover {
