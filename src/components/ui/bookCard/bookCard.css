@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     gap: 10px;
 }
-  
+
 .book-title {
     font-size: 1rem;
     font-weight: 700;
@@ -17,7 +17,7 @@ a {
     color: #000000;
     cursor: pointer;
 }
-  
+
 .book-card {
     width: 150px;
     display: flex;
@@ -36,7 +36,7 @@ a {
     justify-content: center;
     align-items: center;
 }
-  
+
 .container-img img {
     object-fit: cover;
     border-radius: 5px;
@@ -53,12 +53,18 @@ a {
     margin-bottom: 0.5rem;
 }
 
-.author-title, .author-name {
+.author-title,
+.author-name {
     font-size: 0.5rem;
 }
 
 .author-title {
     font-weight: 400;
+    color: #727272;
+}
+
+.rating-title {
+    font-weight: 100;
     color: #727272;
 }
 
