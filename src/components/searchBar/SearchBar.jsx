@@ -20,6 +20,7 @@ const SearchBar = () => {
     const handleSubmitSearch = async (e) => {
         e.preventDefault();
         try {
+            setUserText("");
             const result = await fetchBooks(userText);
             console.log('Recherche soumise');
             console.log('Résultat:', result);
@@ -28,6 +29,12 @@ const SearchBar = () => {
 
         } catch (error) {
             console.error('Error fetching books:', error);
+        }
+    }
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSubmitSearch(e);
         }
     }
 
