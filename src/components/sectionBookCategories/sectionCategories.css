@@ -20,8 +20,9 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10px;
-    padding: 10px 15px;
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 0.4rem;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
@@ -35,6 +36,20 @@ section {
 }
 .book-list.hidden {
     display: block; /* Les livres deviennent visibles quand 'hidden' est retiré */
+}
+
+.section-title {
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+@media screen and (min-width: 768px) {
+    .book-category {
+        margin: 10px;
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
 }
 
 .hidden {
