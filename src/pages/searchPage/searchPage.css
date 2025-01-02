@@ -29,16 +29,20 @@
     margin-bottom: 30px;
 }
 
-.filter-container {
+.content {
     display: flex;
-    justify-content: space-between;
     gap: 20px;
-    flex-wrap: wrap;
+}
+
+/* Section gauche */
+.sidebar {
+    flex: 0 0 20%; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .filter-item {
-    flex: 1;
-    min-width: 300px;
     padding: 20px;
     background-color: white;
     border: 1px solid var(--yellow-light);
@@ -69,7 +73,7 @@ label {
 }
 
 label.active {
-    color: var(--yellow-dark); /* Изменение цвета текста при выборе */
+    color: var(--yellow-dark); 
     font-weight: bold;
 }
 
@@ -84,7 +88,6 @@ input[type="checkbox"]:checked {
 }
 
 .selected-filters {
-    margin-top: 20px;
     padding: 15px;
     /*background-color: var(--yellow-light);*/
     border: 1px solid var(--yellow-dark);
@@ -101,4 +104,13 @@ input[type="checkbox"]:checked {
 .selected-filters p {
     margin: 5px 0;
     font-size: 1rem;
+}
+
+/* Section droite */
+.main-content {
+    flex: 1; /* Reste de la largeur */
+    background-color: var(--background-light);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
