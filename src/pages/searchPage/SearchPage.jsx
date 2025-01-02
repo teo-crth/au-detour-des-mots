@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './searchPage.css';
+import SearchBar from '../../components/searchBar/SearchBar';
 
 const SearchPage = () => {
     // États pour stocker les valeurs des filtres
@@ -9,6 +10,7 @@ const SearchPage = () => {
     return (
         <div className="search-page">
             <h1>Filtrer les livres</h1> {/* Titre principal */}
+            < SearchBar />
             <div className="filter-container">
                 {/* Champ de sélection pour filtrer par catégorie */}
                 <div className="filter-item">
