@@ -5,6 +5,12 @@ import './BookPage.css';
 import NoFoundPage from '../404/NoFoundPage';
 import Button from '../../components/ui/Button';
 import { AppContext } from '../../context/context';
+import dayjs from 'dayjs';
+import localeData from 'dayjs/plugin/localeData';
+import 'dayjs/locale/fr';
+
+dayjs.extend(localeData);
+dayjs.locale('fr');
 
 const BookPage = () => {
     const { id } = useParams();
@@ -21,9 +27,14 @@ const BookPage = () => {
         // Retirer le livre du tableau
         setIsLiked(isLiked.filter((item) => item.id !== book.id)); // Créer un nouveau tableau sans le livre cliqué
     }
+
     if (!book) {
         return <NoFoundPage />;
     }
+
+    const formatPublishedDate = (date) => {
+        return dayjs(date).format('dddd D MMMM YYYY'); // Format: Jour Mois Année
+    };
 
     return (
         <div className="book-page">
@@ -51,7 +62,7 @@ const BookPage = () => {
                         })}
                     </div>
                     <p className='paragraph-info-book'>{book?.volumeInfo?.pageCount} pages</p>
-                    <p className='paragraph-info-book'>{book?.volumeInfo?.publishedDate}</p>
+                    <p className='paragraph-info-book'>{formatPublishedDate(book?.volumeInfo?.publishedDate)}</p> {/* Date formatée */}
                 </div>
                 <div className="container-resume">
                     <h2>Résumé :</h2>
