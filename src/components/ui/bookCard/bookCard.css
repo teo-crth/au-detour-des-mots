@@ -57,7 +57,7 @@ a {
 
 .author-title,
 .author-name {
-    font-size: 0.5rem;
+    font-size: 0.8rem;
 }
 
 .author-title {
@@ -68,12 +68,12 @@ a {
 .rating-title {
     font-weight: 100;
     color: #727272;
+    margin-top: 1rem;
 }
 
 .author-name {
     font-weight: 700;
     color: var(--button-dark-color);
-    margin-bottom: 1rem;
 }
 
 .book-card__heart {
@@ -88,4 +88,12 @@ a {
     width: 20px;
     color: red;
     fill: red;
+}
+
+.container-author-name {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    gap: 5px;
 }
