@@ -4,8 +4,6 @@ import './sectionCategories.css';
 import BookCard from '../ui/bookCard/BookCard';
 
 const SectionCategories = () => {
-    console.log('allBooks', allBooks);
-
     // Filtrer les livres qui ont une catégorie valide
     const filteredBooks = allBooks.filter((book) => {
         return book.volumeInfo.categories && book.volumeInfo.categories[0]; // On s'assure que categories existe et n'est pas vide

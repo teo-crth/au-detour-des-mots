@@ -5,7 +5,7 @@ import './bookCard.css';
 import { AppContext } from '../../../context/context';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 
-const BooksLiked = ({ array }) => {
+const BookCard = ({ array }) => {
 
     const { handleLike, isLiked, setIsLiked } = useContext(AppContext);
     const placeholderImage = '../../public/images/placeholder.jpg';
@@ -66,5 +66,5 @@ const BooksLiked = ({ array }) => {
     );
 };
 
-export default BooksLiked;
+export default BookCard;
 
