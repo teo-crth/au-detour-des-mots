@@ -3,46 +3,64 @@ import './searchPage.css';
 import SearchBar from '../../components/searchBar/SearchBar';
 
 const SearchPage = () => {
-    // États pour stocker les valeurs des filtres
-    const [category, setCategory] = useState(''); // Catégorie sélectionnée
-    const [stars, setStars] = useState(''); // Nombre d'étoiles sélectionnées
+    const [selectedCategories, setSelectedCategories] = useState([]); // Catégories sélectionnées
+    const [selectedStars, setSelectedStars] = useState([]); // Étoiles sélectionnées
+
+    const handleCategoryChange = (category) => {
+        setSelectedCategories((prev) =>
+            prev.includes(category)
+                ? prev.filter((item) => item !== category)
+                : [...prev, category]
+        );
+    };
+
+    const handleStarsChange = (star) => {
+        setSelectedStars((prev) =>
+            prev.includes(star)
+                ? prev.filter((item) => item !== star)
+                : [...prev, star]
+        );
+    };
 
     return (
         <div className="search-page">
-            <h1>Filtrer les livres</h1> {/* Titre principal */}
-            < SearchBar />
+            <h1 className="title">Filtrer les livres</h1>
+            <div className="top-bar">
+                <SearchBar />
+            </div>
             <div className="filter-container">
-                {/* Champ de sélection pour filtrer par catégorie */}
                 <div className="filter-item">
-                    <label htmlFor="category">Recherche par catégorie :</label>
-                    <select
-                        id="category"
-                        value={category}
-                        onChange={(e) => setCategory(e.target.value)}
-                    >
-                        <option value="">Toutes les catégories</option>
-                        <option value="fiction">Fiction</option>
-                        <option value="science">Science</option>
-                        <option value="history">Histoire</option>
-                        <option value="fantasy">Fantastique</option>
-                    </select>
+                    <h3>Catégories :</h3>
+                    <div className="checkbox-group">
+                        {['Fiction', 'Science', 'Histoire', 'Fantastique'].map((category) => (
+                            <label key={category}>
+                                <input
+                                    type="checkbox"
+                                    value={category.toLowerCase()}
+                                    checked={selectedCategories.includes(category.toLowerCase())}
+                                    onChange={() => handleCategoryChange(category.toLowerCase())}
+                                />
+                                {category}
+                            </label>
+                        ))}
+                    </div>
                 </div>
 
-                {/* Champ de sélection pour filtrer par nombre d'étoiles */}
                 <div className="filter-item">
-                    <label htmlFor="stars">Filtrer par étoiles :</label>
-                    <select
-                        id="stars"
-                        value={stars}
-                        onChange={(e) => setStars(e.target.value)}
-                    >
-                        <option value="">Toutes les évaluations</option>
-                        <option value="1">1 étoile</option>
-                        <option value="2">2 étoiles</option>
-                        <option value="3">3 étoiles</option>
-                        <option value="4">4 étoiles</option>
-                        <option value="5">5 étoiles</option>
-                    </select>
+                    <h3>Étoiles :</h3>
+                    <div className="checkbox-group">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                            <label key={star}>
+                                <input
+                                    type="checkbox"
+                                    value={star}
+                                    checked={selectedStars.includes(star)}
+                                    onChange={() => handleStarsChange(star)}
+                                />
+                                {star} étoile{star > 1 ? 's' : ''}
+                            </label>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
