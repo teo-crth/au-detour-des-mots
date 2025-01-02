@@ -56,7 +56,7 @@ const BookCard = ({ array }) => {
                                 <div className="container-book-info">
                                     <p className='author-title'>Auteur(s) :</p>
                                     <div className="container-author-name">
-                                        {book?.volumeInfo?.authors.map((author) => {
+                                        {book?.volumeInfo?.authors?.map((author) => {
                                             return (
                                                 <p className='author-name'><strong>{author}</strong></p>
                                             );
