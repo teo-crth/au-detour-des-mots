@@ -3,6 +3,7 @@
     --yellow-dark: #ffc107;
     --text-dark: #333;
     --background-light: #f9f9f9;
+    --text-light: #fff;
 }
 
 .search-page {
@@ -64,6 +65,12 @@ label {
     font-size: 1rem;
     color: var(--text-dark);
     cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+label.active {
+    color: var(--yellow-dark); /* Изменение цвета текста при выборе */
+    font-weight: bold;
 }
 
 input[type="checkbox"] {
@@ -76,8 +83,22 @@ input[type="checkbox"]:checked {
     accent-color: var(--yellow-dark);
 }
 
-@media (max-width: 768px) {
-    .filter-container {
-        flex-direction: column;
-    }
+.selected-filters {
+    margin-top: 20px;
+    padding: 15px;
+    /*background-color: var(--yellow-light);*/
+    border: 1px solid var(--yellow-dark);
+    border-radius: 5px;
+    color: var(--text-dark);
+}
+
+.selected-filters h3 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    color: var(--text-dark);
+}
+
+.selected-filters p {
+    margin: 5px 0;
+    font-size: 1rem;
 }

@@ -33,7 +33,10 @@ const SearchPage = () => {
                     <h3>Catégories :</h3>
                     <div className="checkbox-group">
                         {['Fiction', 'Science', 'Histoire', 'Fantastique'].map((category) => (
-                            <label key={category}>
+                            <label
+                                key={category}
+                                className={selectedCategories.includes(category.toLowerCase()) ? 'active' : ''}
+                            >
                                 <input
                                     type="checkbox"
                                     value={category.toLowerCase()}
@@ -50,7 +53,10 @@ const SearchPage = () => {
                     <h3>Étoiles :</h3>
                     <div className="checkbox-group">
                         {[1, 2, 3, 4, 5].map((star) => (
-                            <label key={star}>
+                            <label
+                                key={star}
+                                className={selectedStars.includes(star) ? 'active' : ''}
+                            >
                                 <input
                                     type="checkbox"
                                     value={star}
@@ -62,6 +68,12 @@ const SearchPage = () => {
                         ))}
                     </div>
                 </div>
+            </div>
+
+            <div className="selected-filters">
+                <h3>Filtres sélectionnés :</h3>
+                <p>Catégories : {selectedCategories.join(', ') || 'Aucune'}</p>
+                <p>Étoiles : {selectedStars.join(', ') || 'Aucune'}</p>
             </div>
         </div>
     );
