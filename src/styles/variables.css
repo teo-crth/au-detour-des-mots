@@ -4,6 +4,12 @@
 :root {
     --button-light-color: orange;
     --button-dark-color: hsl(33, 100%, 50%);
+    --yellow-light: #ffeb3b;
+    --yellow-dark: #ffc107;
+    --text-dark: #333;
+    --background-light: #f9f9f9;
+    --text-light: #fff;
+    --font-family: 'Roboto', sans-serif;
 }
 
 /* reset */
