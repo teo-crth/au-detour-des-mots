@@ -1,16 +1,9 @@
-:root {
-    --yellow-light: #ffeb3b;
-    --yellow-dark: #ffc107;
-    --text-dark: #333;
-    --background-light: #f9f9f9;
-    --text-light: #fff;
-}
 
 .search-page {
     padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
     background-color: var(--background-light);
     border-radius: 8px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
