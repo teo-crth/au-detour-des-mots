@@ -23,15 +23,16 @@ const BooksLiked = ({ array }) => {
         const stars = [];
         for (let i = 1; i <= 5; i++) {
             if (i <= rating) {
-                stars.push(<FaStar key={i} />);
+                stars.push(<FaStar key={i} className="star-icon" />);
             } else if (i === Math.ceil(rating) && !Number.isInteger(rating)) {
-                stars.push(<FaStarHalfAlt key={i} />);
+                stars.push(<FaStarHalfAlt key={i} className="star-icon" />);
             } else {
-                stars.push(<FaRegStar key={i} />);
+                stars.push(<FaRegStar key={i} className="star-icon" />);
             }
         }
         return stars;
     };
+
 
     return (
         <div className='container-books-liked'>
@@ -54,8 +55,10 @@ const BooksLiked = ({ array }) => {
                             <div className="container-book-info">
                                 <p className='author-title'>Auteur(s) :</p>
                                 <p className='author-name'>{book?.volumeInfo?.authors}</p>
-                                <p className='rating-title'>Note :</p>
-                                <div className='rating'>{renderStars(averageRating)}</div>
+                                <div className='rating-container'>
+                                    <p className='rating-title'>Note :</p>
+                                    <div className='rating'>{renderStars(averageRating)}</div>
+                                </div>
                             </div>
                         </Link>
                         <Button text={isInArray(book) ? 'Ajouté !' : 'Ajouter'} onClick={isInArray(book) ? null : () => handleLike(book)} className={isInArray(book) ? "book-card-button-already-liked" : "book-card-button"} />
@@ -67,4 +70,3 @@ const BooksLiked = ({ array }) => {
 };
 
 export default BooksLiked;
-

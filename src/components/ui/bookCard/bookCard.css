@@ -1,9 +1,9 @@
 .container-books-liked {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
 }
 
 .book-title {
@@ -35,6 +35,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .container-img img {
@@ -50,7 +51,7 @@ a {
     align-items: center;
     gap: 5px;
     width: 100%;
-    margin-bottom: 0.5rem;
+    margin-bottom: 5px;
 }
 
 .author-title,
@@ -64,12 +65,15 @@ a {
 }
 
 .rating-title {
-    font-weight: 100;
+    margin-bottom: 10px;
+    font-size: 0.5rem;
+    font-weight: 400;
     color: #727272;
 }
 
 .author-name {
     font-weight: 700;
+    font-size: 5rem;
     color: var(--button-dark-color);
 }
 
@@ -77,6 +81,7 @@ a {
     position: absolute;
     top: 5px;
     right: 5px;
+    bottom: 5px;
     cursor: pointer;
     z-index: 10;
 }
@@ -85,4 +90,16 @@ a {
     width: 20px;
     color: red;
     fill: red;
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.star-icon {
+    font-size: 0.85rem;
+    color: var(--button-dark-color);
+    /* Adjust this value to make the stars smaller or larger */
 }
