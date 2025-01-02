@@ -22,7 +22,7 @@ const sectionBestRating = () => {
 
     return (
         <section>
-            <h2>Les mieux notés</h2>
+            <h2 className='section-title'>Les mieux notés</h2>
             <BookCard array={bestRating} />
 
         </section>

@@ -43,7 +43,7 @@ const SectionCategories = () => {
 
     return (
         <section>
-            <h2>Top 10 des genres Littéraires</h2>
+            <h2 className='section-title'>Top 10 des genres Littéraires</h2>
             <div className='container-book-categories'>
                 {topCategories.map((category) => (
                     <div key={category}>

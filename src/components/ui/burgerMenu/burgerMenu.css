@@ -1,0 +1,32 @@
+.container-burgerMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 70%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 20;
+    height: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 2rem;
+    font-size: 0.7rem;
+}
+
+.container-close-icon {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    color: red;
+
+}

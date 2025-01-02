@@ -41,3 +41,26 @@ nav a {
 nav a:hover {
     color: var(--menu-dark);
 }
+
+.container-burgerMenu-icon {
+    display: block;
+    cursor: pointer;
+}
+
+.nav-desktop {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+        .container-burgerMenu-icon{
+            display: none;
+        }
+
+        .nav-desktop {
+            display: flex;
+        }
+}
+
+.hidden {
+    display: none;
+}

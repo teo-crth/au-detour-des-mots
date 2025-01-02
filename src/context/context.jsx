@@ -8,6 +8,7 @@ export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   // Global state
   const [isLiked, setIsLiked] = useState([]);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // if we like a book, we add it to the booksLikedArray
     const handleLike = (book) => {
@@ -15,7 +16,7 @@ export const AppProvider = ({ children }) => {
     };
 
   return (
-    <AppContext.Provider value={{ isLiked, handleLike, setIsLiked }}>
+    <AppContext.Provider value={{ isLiked, handleLike, setIsLiked, menuOpen, setMenuOpen }}>
       {children}
     </AppContext.Provider>
   );
