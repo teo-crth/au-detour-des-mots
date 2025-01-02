@@ -4,8 +4,6 @@ import './sectionNewestBooks.css';
 import BookCard from '../ui/bookCard/BookCard';
 
 const sectionNewestBooks = () => {
-    console.log('allBooks', allBooks);
-
     // Filtrer les livres qui ont une date de publication
     const filteredBooks = allBooks.filter((book) => {
         return book.volumeInfo.publishedDate && book.volumeInfo.publishedDate[0]; // On s'assure que la date de publication existe et n'est pas vide

@@ -5,3 +5,10 @@
     --button-light-color: orange;
     --button-dark-color: hsl(33, 100%, 50%);
 }
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

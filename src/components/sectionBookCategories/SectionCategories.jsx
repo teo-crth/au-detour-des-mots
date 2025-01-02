@@ -4,8 +4,6 @@ import './sectionCategories.css';
 import BookCard from '../ui/bookCard/BookCard';
 
 const SectionCategories = () => {
-    console.log('allBooks', allBooks);
-
     // Filtrer les livres qui ont une catégorie valide
     const filteredBooks = allBooks.filter((book) => {
         return book.volumeInfo.categories && book.volumeInfo.categories[0]; // On s'assure que categories existe et n'est pas vide
@@ -27,10 +25,20 @@ const SectionCategories = () => {
     // Gérer l'état de la catégorie sélectionnée
     const [selectedCategory, setSelectedCategory] = useState(null);
 
+    // Ajouter un état pour les livres de la catégorie sélectionnée
+    const [filteredBooksForCategory, setFilteredBooksForCategory] = useState([]);
+
     // Fonction pour gérer le clic sur une catégorie
     const handleClick = (category) => {
         // Si la catégorie est déjà sélectionnée, la désélectionner (sinon, sélectionner cette catégorie)
-        setSelectedCategory(selectedCategory === category ? null : category);
+        if (selectedCategory === category) {
+            setSelectedCategory(null);
+            setFilteredBooksForCategory([]); // Réinitialiser les livres affichés
+        } else {
+            setSelectedCategory(category);
+            // Mettre à jour les livres affichés pour cette catégorie
+            setFilteredBooksForCategory(filteredBooks.filter((book) => book.volumeInfo.categories[0] === category));
+        }
     };
 
     return (
@@ -48,7 +56,7 @@ const SectionCategories = () => {
                 {/* Afficher les livres de la catégorie sélectionnée en dessous de toutes les catégories */}
                 {selectedCategory && (
                     <div className="book-list">
-                        <BookCard array={filteredBooks.filter((book) => book.volumeInfo.categories[0] === selectedCategory)} />
+                        <BookCard array={filteredBooksForCategory} />
                     </div>
                 )}
             </div>
