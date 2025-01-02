@@ -2,16 +2,36 @@
     padding: 20px;
     max-width: 800px;
     margin: 0 auto;
+    font-family: Arial, sans-serif;
 }
 
-.books-container {
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 20px;
-    justify-content: center;
 }
 
-.error {
-    color: red;
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 16px;
     font-weight: bold;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 400px;
 }
