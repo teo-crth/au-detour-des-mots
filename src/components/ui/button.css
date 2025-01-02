@@ -1,4 +1,6 @@
 .book-card-button {
+    display: flex;
+    justify-content: space-between;
     padding: 5px 15px;
     background-color: orange;
     color: white;
