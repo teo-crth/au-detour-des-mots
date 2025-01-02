@@ -3,6 +3,7 @@ import './SearchBar.css';
 import Button from '../ui/Button';
 import { fetchBooks } from '../../api/getBooksByQuery';
 import QueryResultSection from './QueryResultSection';
+import {addBooksToArray} from '../../utils/allBooksArray/addBooksToArray';
 
 const SearchBar = () => {
     const [userText, setUserText] = useState('');
@@ -22,7 +23,9 @@ const SearchBar = () => {
             const result = await fetchBooks(userText);
             console.log('Recherche soumise');
             console.log('Résultat:', result);
-            setResultFetch(result); 
+            setResultFetch(result);
+            addBooksToArray(result);
+
         } catch (error) {
             console.error('Error fetching books:', error);
         }
