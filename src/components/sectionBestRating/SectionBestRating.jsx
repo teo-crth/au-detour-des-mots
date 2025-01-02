@@ -4,8 +4,6 @@ import './sectionBestRating.css';
 import BookCard from '../ui/bookCard/BookCard';
 
 const sectionBestRating = () => {
-    console.log('allBooks', allBooks);
-
     // Filtrer les livres qui ont une date de publication
     const filteredBooks = allBooks.filter((book) => {
         return book.volumeInfo.averageRating; // On s'assure que la note existe et n'est pas vide
