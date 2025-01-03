@@ -18,14 +18,14 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: 'mes-livres',
+        path: 'au-detour-des-mots/mes-livres',
         element: <MyBooksPage />,
       },
       {
-        path: 'recherche',
+        path: 'au-detour-des-mots/recherche',
         element: <SearchPage />,
       },
-      { path: 'book/:id', 
+      { path: 'au-detour-des-mots/book/:id', 
       element: <BookPage /> 
     },
     ],
