@@ -17,7 +17,7 @@ const Header = () => {
 
     return (
         <header>
-            <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}><img src="public/assets/logo-table.webp" alt="Logo table avec des livres" /></NavLink>
+            <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}><img src="../../../public/assets/logo-table.webp" alt="Logo table avec des livres" /></NavLink>
                 <nav className="nav-desktop">
                     <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>Accueil</NavLink>
                     <NavLink to="/mes-livres" className={({ isActive }) => isActive ? 'active' : ''}>Mes livres</NavLink>
