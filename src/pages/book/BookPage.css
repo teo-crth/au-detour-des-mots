@@ -95,6 +95,14 @@
 }
 
 /* Button */
+.container-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .book-card-button {
   padding: 5px 15px;
   background-color: orange;
