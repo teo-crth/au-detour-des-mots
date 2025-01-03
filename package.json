@@ -5,15 +5,15 @@
   "type": "module",
   "main": "index.js",
   "homepage": "https://teo-crth.github.io/au-detour-des-mots/",
-"scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "dev": "vite",
-  "build": "vite build",
-  "lint": "eslint .",
-  "preview": "vite preview",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
