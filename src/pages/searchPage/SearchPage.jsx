@@ -6,11 +6,12 @@ import { AppContext } from '../../context/context';
 const SearchPage = () => {
     const { ResultFetch = [] } = useContext(AppContext);
     const [categories, setCategories] = useState([]);
-    const [stars, setStars] = useState([1, 2, 3, 4, 5]);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [selectedStars, setSelectedStars] = useState([]);
     const [filteredBooks, setFilteredBooks] = useState([]);
+    const stars = [1, 2, 3, 4, 5];
 
+    // Извлечение уникальных категорий
     useEffect(() => {
         if (ResultFetch.length > 0) {
             const allCategories = ResultFetch.flatMap(
@@ -18,36 +19,19 @@ const SearchPage = () => {
             );
             const uniqueCategories = [...new Set(allCategories)];
 
-            setCategories((prevCategories) =>
-                JSON.stringify(prevCategories) !== JSON.stringify(uniqueCategories)
-                    ? uniqueCategories
-                    : prevCategories
-            );
+            // Проверяем, изменились ли категории
+            if (JSON.stringify(categories) !== JSON.stringify(uniqueCategories)) {
+                setCategories(uniqueCategories);
+            }
 
-            setFilteredBooks((prevBooks) =>
-                JSON.stringify(prevBooks) !== JSON.stringify(ResultFetch)
-                    ? ResultFetch
-                    : prevBooks
-            );
+            // Проверяем, изменились ли книги
+            if (JSON.stringify(filteredBooks) !== JSON.stringify(ResultFetch)) {
+                setFilteredBooks(ResultFetch);
+            }
         }
     }, [ResultFetch]);
 
-    const handleCategoryChange = (category) => {
-        setSelectedCategories((prev) =>
-            prev.includes(category)
-                ? prev.filter((item) => item !== category)
-                : [...prev, category]
-        );
-    };
-
-    const handleStarsChange = (star) => {
-        setSelectedStars((prev) =>
-            prev.includes(star)
-                ? prev.filter((item) => item !== star)
-                : [...prev, star]
-        );
-    };
-
+    // Фильтрация книг
     useEffect(() => {
         let books = ResultFetch;
 
@@ -66,10 +50,27 @@ const SearchPage = () => {
             });
         }
 
-        setFilteredBooks((prevBooks) =>
-            JSON.stringify(prevBooks) !== JSON.stringify(books) ? books : prevBooks
-        );
+        // Проверяем, изменились ли отфильтрованные книги
+        if (JSON.stringify(filteredBooks) !== JSON.stringify(books)) {
+            setFilteredBooks(books);
+        }
     }, [selectedCategories, selectedStars, ResultFetch]);
+
+    const handleCategoryChange = (category) => {
+        setSelectedCategories((prev) =>
+            prev.includes(category)
+                ? prev.filter((item) => item !== category)
+                : [...prev, category]
+        );
+    };
+
+    const handleStarChange = (star) => {
+        setSelectedStars((prev) =>
+            prev.includes(star)
+                ? prev.filter((item) => item !== star)
+                : [...prev, star]
+        );
+    };
 
     return (
         <div className="search-page">
@@ -83,12 +84,7 @@ const SearchPage = () => {
                         <h3>Catégories :</h3>
                         <div className="checkbox-group">
                             {categories.map((category) => (
-                                <label
-                                    key={category}
-                                    className={
-                                        selectedCategories.includes(category) ? 'active' : ''
-                                    }
-                                >
+                                <label key={category}>
                                     <input
                                         type="checkbox"
                                         value={category}
@@ -100,20 +96,16 @@ const SearchPage = () => {
                             ))}
                         </div>
                     </div>
-
                     <div className="filter-item">
                         <h3>Étoiles :</h3>
                         <div className="checkbox-group">
                             {stars.map((star) => (
-                                <label
-                                    key={star}
-                                    className={selectedStars.includes(star) ? 'active' : ''}
-                                >
+                                <label key={star}>
                                     <input
                                         type="checkbox"
                                         value={star}
                                         checked={selectedStars.includes(star)}
-                                        onChange={() => handleStarsChange(star)}
+                                        onChange={() => handleStarChange(star)}
                                     />
                                     {star} étoile{star > 1 ? 's' : ''}
                                 </label>
@@ -125,14 +117,9 @@ const SearchPage = () => {
                 <main className="main-content">
                     <h3>Résultats :</h3>
                     {filteredBooks.length > 0 ? (
-                        <ul>
-                            {filteredBooks.map((book) => (
-                                <li key={book.id}>
-                                    <strong>{book.volumeInfo.title}</strong> —{' '}
-                                    {book.volumeInfo.categories?.join(', ')}
-                                </li>
-                            ))}
-                        </ul>
+                        <div className="book-list">
+                            <BookCard array={filteredBooks} />
+                        </div>
                     ) : (
                         <p>Aucun livre trouvé pour les filtres sélectionnés.</p>
                     )}
