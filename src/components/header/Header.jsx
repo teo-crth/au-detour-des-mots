@@ -17,9 +17,9 @@ const Header = () => {
 
     return (
         <header>
-            <NavLink to="/au-detour-des-mots" className={({ isActive }) => isActive ? 'active' : ''}><img src="./public/assets/images/logo-table.webp" alt="Logo table avec des livres" /></NavLink>
+            <NavLink to="/au-detour-des-mots" className={({ isActive }) => isActive ? 'active' : ''}><img src="../../../public/assets/images/logo-table.webp" alt="Logo table avec des livres" /></NavLink>
                 <nav className="nav-desktop">
-                    <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>Accueil</NavLink>
+                    <NavLink to="/au-detour-des-mots" className={({ isActive }) => isActive ? 'active' : ''}>Accueil</NavLink>
                     <NavLink to="/au-detour-des-mots/mes-livres" className={({ isActive }) => isActive ? 'active' : ''}>Mes livres</NavLink>
                     <NavLink to="/au-detour-des-mots/recherche" className={({ isActive }) => isActive ? 'active' : ''}>Recherche</NavLink>
                     <FontAwesomeIcon className="dark-mode-icon" icon={faMoon} onClick={toggleTheme}/>
