@@ -6,6 +6,7 @@ export const AppContext = createContext();
 // Fournisseur du contexte
 export const AppProvider = ({ children }) => {
   // Global state
+  const [resultFetch, setResultFetch] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   
   // Charger isLiked depuis localStorage au démarrage
@@ -26,7 +27,7 @@ export const AppProvider = ({ children }) => {
   }, [isLiked]); // Le useEffect se déclenche lorsque isLiked change
 
   return (
-    <AppContext.Provider value={{ isLiked, handleLike, setIsLiked, menuOpen, setMenuOpen }}>
+    <AppContext.Provider value={{ isLiked, handleLike, setIsLiked, menuOpen, setMenuOpen, resultFetch, setResultFetch }}>
       {children}
     </AppContext.Provider>
   );
