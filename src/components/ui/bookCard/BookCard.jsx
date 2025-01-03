@@ -17,6 +17,9 @@ const BookCard = ({ array }) => {
         console.log('heart clicked');
         // Retirer le livre du tableau
         setIsLiked(isLiked.filter((item) => item.id !== book.id)); // Créer un nouveau tableau sans le livre cliqué
+
+        // Mettre à jour le local storage
+        localStorage.setItem('isLiked', JSON.stringify(isLiked.filter((item) => item.id !== book.id)));
     }
 
     const renderStars = (rating) => {
