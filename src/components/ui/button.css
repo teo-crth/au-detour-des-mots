@@ -7,6 +7,8 @@
     border: none;
     border-radius: 5px;
     font-weight: 800;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
 }
 
 .book-card-button:hover {
