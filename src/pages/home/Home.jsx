@@ -9,7 +9,6 @@ const Home = () => {
   return (
     <>
       <h1 className='home-title'>Au détour des mots</h1>
-      < SearchBar />
       < SectionCategories />
       < SectionBestRating />
       < SectionNewestBooks />
