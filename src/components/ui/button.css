@@ -21,3 +21,8 @@
     color: gray;
     border: none;
 }
+
+.dark-mode .book-card-button-already-liked {
+    background-color: var(--bg-dark-bookcard);
+    color: #fff;
+}

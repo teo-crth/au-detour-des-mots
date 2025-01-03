@@ -71,8 +71,8 @@ const SearchPage = () => {
                     </div>
                     <div className="selected-filters">
                         <h3>Filtres sélectionnés :</h3>
-                        <p>Catégories : {selectedCategories.join(', ') || 'Aucune'}</p>
-                        <p>Étoiles : {selectedStars.join(', ') || 'Aucune'}</p>
+                        <p><strong>Catégories :</strong> {selectedCategories.join(', ') || 'Aucune'}</p>
+                        <p><strong>Étoiles :</strong> {selectedStars.join(', ') || 'Aucune'}</p>
                     </div>
                 </aside>
 

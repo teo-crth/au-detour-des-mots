@@ -26,8 +26,29 @@ export const AppProvider = ({ children }) => {
     localStorage.setItem('isLiked', JSON.stringify(isLiked));
   }, [isLiked]); // Le useEffect se déclenche lorsque isLiked change
 
+
+  // DARK MODE
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem('darkMode');
+    return savedMode ? JSON.parse(savedMode) : false;
+});
+
+useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+    }
+
+    localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
+}, [isDarkMode]);
+
+const toggleTheme = () => {
+    setIsDarkMode(prevMode => !prevMode);
+};
+
   return (
-    <AppContext.Provider value={{ isLiked, handleLike, setIsLiked, menuOpen, setMenuOpen, resultFetch, setResultFetch }}>
+    <AppContext.Provider value={{ isLiked, handleLike, setIsLiked, menuOpen, setMenuOpen, resultFetch, setResultFetch, isDarkMode, toggleTheme }}>
       {children}
     </AppContext.Provider>
   );
