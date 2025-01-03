@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './SearchBar.css';
 import Button from '../ui/Button';
 import { fetchBooks } from '../../api/getBooksByQuery';
 import QueryResultSection from './QueryResultSection';
 import {addBooksToArray} from '../../utils/allBooksArray/addBooksToArray';
+import { AppContext } from '../../context/context';
 
 const SearchBar = () => {
     const [userText, setUserText] = useState('');
-    const [resultFetch, setResultFetch] = useState(null);
+    const {resultFetch, setResultFetch } = useContext(AppContext);
+
 
     const textTaping = (e) => {
         setUserText(e.target.value);
