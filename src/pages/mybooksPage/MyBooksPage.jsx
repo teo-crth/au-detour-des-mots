@@ -11,7 +11,7 @@ const MyBooksPage = () => {
 
     return (
     <>
-        <h1 className='mybooks-title'>Mes livres</h1>
+        <h1 className='mybooks-title'>Mes livres favoris</h1>
         {isLiked.length === 0 ? (
             <p className='mybooks-empty'>Vous n'avez pas encore de livres aimés</p>
         ) : (
