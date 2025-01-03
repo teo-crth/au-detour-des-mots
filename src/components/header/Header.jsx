@@ -21,6 +21,7 @@ const Header = () => {
                     <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>Accueil</NavLink>
                     <NavLink to="/mes-livres" className={({ isActive }) => isActive ? 'active' : ''}>Mes livres</NavLink>
                     <NavLink to="/recherche" className={({ isActive }) => isActive ? 'active' : ''}>Recherche</NavLink>
+                    <NavLink to="/acheter" className={({ isActive }) => isActive ? 'active' : ''}>Acheter</NavLink>
                 </nav>
             <div className='container-burgerMenu-icon' onClick={toggleMenu}>
                 <FontAwesomeIcon icon={faBars} />

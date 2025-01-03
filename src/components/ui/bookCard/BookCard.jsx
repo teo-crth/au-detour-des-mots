@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Button from '../Button';
 import './bookCard.css';
 import { AppContext } from '../../../context/context';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 
-const BookCard = ({ array }) => {
+const BookCard = ({ array, free }) => {
 
     const { handleLike, isLiked, setIsLiked } = useContext(AppContext);
     const placeholderImage = '../../public/images/placeholder.jpg';
@@ -33,6 +33,16 @@ const BookCard = ({ array }) => {
         return stars;
     };
 
+    const location = useLocation();
+
+    const handleBuyLink = (book) => {
+        console.log('buy link clicked');
+        if (book.saleInfo?.buyLink) {
+            window.open(book.saleInfo.buyLink, '_blank');
+        } else {
+            console.log('Aucun lien d\'achat disponible');
+        }
+    };
 
     return (
         <>
@@ -67,7 +77,12 @@ const BookCard = ({ array }) => {
                                     <div className='rating'>{renderStars(averageRating)}</div>
                                 </div>
                             </Link>
-                            <Button text={isInArray(book) ? 'Ajouté !' : 'Ajouter'} onClick={isInArray(book) ? null : () => handleLike(book)} className={isInArray(book) ? "book-card-button-already-liked" : "book-card-button"} />
+                            
+                            {location.pathname === '/acheter' ? (
+                                <Button text={free ? "Lire" : "Acheter"} onClick={() => handleBuyLink(book)} className="book-card-button" />
+                            ) : (
+                                <Button text={isInArray(book) ? 'Ajouté !' : 'Ajouter'} onClick={isInArray(book) ? null : () => handleLike(book)} className={isInArray(book) ? "book-card-button-already-liked" : "book-card-button"} />
+                            )}
                         </div >
                     )
                 })}

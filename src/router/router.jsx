@@ -6,6 +6,7 @@ import MyBooksPage from '../pages/mybooksPage/MyBooksPage';
 import SearchPage from '../pages/searchPage/SearchPage';
 import Layout from '../components/layout/Layout';
 import BookPage from '../pages/book/BookPage';
+import Buy from '../pages/buyPage/buy';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: 'recherche',
         element: <SearchPage />,
+      },
+      {
+        path: 'acheter',
+        element: <Buy />,
       },
       { path: 'book/:id', 
       element: <BookPage /> 
