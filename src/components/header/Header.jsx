@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faMoon } from '@fortawesome/free-solid-svg-icons';
 import BurgerMenu from '../ui/burgerMenu/BurgerMenu';
 import { AppContext } from '../../context/context';
+import logo from '../../../public/assets/images/logo-table.webp';
 
 const Header = () => {
     // Etat pour gérer l'ouverture du menu burger
@@ -23,12 +24,12 @@ const Header = () => {
                 ../../../public/assets/images/logo-table.webp
                 /public/assets/images/logo-table.webp
                 /assets/images/logo-table.webp
+                /images/logo-table.webp
+                ../../../../public/assets/images/logo-table.webp
+                /logo-table.webp
+                ../../../public/assets/logo-table.webp
             */}
-            <NavLink to="/au-detour-des-mots" className={({ isActive }) => isActive ? 'active' : ''}><img src="./au-detour-des-mots/public/assets/images/logo-table.webp" alt="Logo table avec des livres" /></NavLink>
-            <NavLink to="/au-detour-des-mots" className={({ isActive }) => isActive ? 'active' : ''}><img src="/images/logo-table.webp" alt="Logo table avec des livres" /></NavLink>
-            <NavLink to="/au-detour-des-mots" className={({ isActive }) => isActive ? 'active' : ''}><img src="../../../../public/assets/images/logo-table.webp" alt="Logo table avec des livres" /></NavLink>
-            <NavLink to="/au-detour-des-mots" className={({ isActive }) => isActive ? 'active' : ''}><img src="/logo-table.webp" alt="Logo table avec des livres" /></NavLink>
-            <NavLink to="/au-detour-des-mots" className={({ isActive }) => isActive ? 'active' : ''}><img src="../../../public/assets/logo-table.webp" alt="Logo table avec des livres" /></NavLink>
+            <NavLink to="/au-detour-des-mots" className={({ isActive }) => isActive ? 'active' : ''}><img src={logo} alt="Logo table avec des livres" /></NavLink>
                 <nav className="nav-desktop">
                     <NavLink to="/au-detour-des-mots" className={({ isActive }) => isActive ? 'active' : ''}>Accueil</NavLink>
                     <NavLink to="/au-detour-des-mots/mes-livres" className={({ isActive }) => isActive ? 'active' : ''}>Mes livres</NavLink>
