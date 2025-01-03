@@ -8,7 +8,7 @@ import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 const BookCard = ({ array }) => {
 
     const { handleLike, isLiked, setIsLiked } = useContext(AppContext);
-    const placeholderImage = '../../public/assets/images/placeholder.jpg';
+    const placeholderImage = '../../../../public/assets/images/placeholder.jpg';
     const isInArray = (book) => {
         return isLiked.some((item) => item.id === book.id);
     }
