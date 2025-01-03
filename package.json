@@ -1,5 +1,5 @@
 {
-  "homepage": "https://teo-crth.github.io/au-detour-des-mots/",
+  "homepage": "https://teo-crth.github.io/au-detour-des-mots",
   "name": "react-modele-vite",
   "version": "1.0.0",
   "description": "Application de pile-à-lire pour enregistrer ses envies de lecture et trouver de nouveaux livres !",
@@ -12,7 +12,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
