@@ -6,7 +6,7 @@ import { AppProvider } from './context/context';
 
 const App = () => {
   return (
-    <AppProvider> {/* Envelopper l'application avec AppProvider */}
+    <AppProvider>
       <RouterProvider router={router} />
     </AppProvider>
   );
