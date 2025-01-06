@@ -4,11 +4,11 @@ import Button from '../Button';
 import './bookCard.css';
 import { AppContext } from '../../../context/context';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
+import placeholder from '../../../../public/assets/images/placeholder.jpg';
 
 const BookCard = ({ array }) => {
 
     const { handleLike, isLiked, setIsLiked } = useContext(AppContext);
-    const placeholderImage = '../../public/images/placeholder.jpg';
     const isInArray = (book) => {
         return isLiked.some((item) => item.id === book.id);
     }
@@ -17,6 +17,9 @@ const BookCard = ({ array }) => {
         console.log('heart clicked');
         // Retirer le livre du tableau
         setIsLiked(isLiked.filter((item) => item.id !== book.id)); // Créer un nouveau tableau sans le livre cliqué
+
+        // Mettre à jour le local storage
+        localStorage.setItem('isLiked', JSON.stringify(isLiked.filter((item) => item.id !== book.id)));
     }
 
     const renderStars = (rating) => {
@@ -49,9 +52,9 @@ const BookCard = ({ array }) => {
                                     </svg>
                                 </span>
                                 : null}
-                            <Link to={`/book/${book.id}`} className="book-link">
+                            <Link to={`/au-detour-des-mots/livre/${book.id}`} className="book-link">
                                 <div className="container-img">
-                                    <img src={book?.volumeInfo?.imageLinks?.thumbnail || placeholderImage} alt={`Image du livre ${book?.volumeInfo?.title}`} />
+                                    <img src={book?.volumeInfo?.imageLinks?.thumbnail || placeholder} alt={`Image du livre ${book?.volumeInfo?.title}`} />
                                 </div>
                                 <h3 className='book-title'>{book?.volumeInfo?.title}</h3>
                                 <div className="container-book-info">

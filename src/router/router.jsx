@@ -9,7 +9,7 @@ import BookPage from '../pages/book/BookPage';
 
 const router = createBrowserRouter([
   {
-    path: '/', // Route parent
+    path: '/au-detour-des-mots', // Route parent
     element: <Layout />, // Layout contenant Header et Footer
     errorElement: <NoFoundPage />,
     children: [
@@ -25,9 +25,10 @@ const router = createBrowserRouter([
         path: 'recherche',
         element: <SearchPage />,
       },
-      { path: 'book/:id', 
-      element: <BookPage /> 
-    },
+      {
+        path: 'livre/:id', 
+        element: <BookPage />,
+      },
     ],
   },
 ]);

@@ -15,6 +15,7 @@ section {
     margin-top: 20px;
 }
 
+
 .book-category {
     display: flex;
     flex-direction: column;
@@ -27,6 +28,12 @@ section {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
     cursor: pointer;
+}
+
+.dark-mode .book-category {
+    border: 1px solid white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
 .book-category:hover {

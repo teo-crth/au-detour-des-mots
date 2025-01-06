@@ -32,17 +32,30 @@ const BookPage = () => {
         return <NoFoundPage />;
     }
 
+    let isFree = false;
+
+    if (book.saleInfo.listPrice?.amount === 0) {
+        return  isFree = true;
+    }
+
     const formatPublishedDate = (date) => {
         return dayjs(date).format('dddd D MMMM YYYY'); // Format: Jour Mois Année
     };
+
+    const handleBuyLink = () => {
+        window.open(book.saleInfo.buyLink, '_blank');
+    }
 
     return (
         <div className="book-page">
             <div className="container-the-book">
                 <div className="container-img-bookPage">
                     <img className='book-img' src={book?.volumeInfo?.imageLinks?.thumbnail || placeholderImage} alt={`Image du livre ${book?.volumeInfo?.title}`} />
-                    <div>
+                    <div className="container-buttons">
                         <Button text={isInArray(book) ? 'Ajouté !' : "Ajouter à ma liste"} onClick={isInArray(book) ? null : () => handleLike(book)} className={isInArray(book) ? "book-card-button-already-liked" : "book-card-button"} />
+                        {book.saleInfo.buyLink ?
+                        <Button text={isFree ? "Lire" : "Acheter"} className="book-card-button" onClick={handleBuyLink}/>
+                        : null}
                     </div>
                     {isInArray(book) ?
                         <span className='book-card__heart_icon' onClick={() => handleHeartClick(book)}>
@@ -63,6 +76,8 @@ const BookPage = () => {
                     </div>
                     <p className='paragraph-info-book'>{book?.volumeInfo?.pageCount} pages</p>
                     <p className='paragraph-info-book'>{formatPublishedDate(book?.volumeInfo?.publishedDate)}</p> {/* Date formatée */}
+                    {book.saleInfo.listPrice?.amount ? 
+                    <p className='paragraph-info-book'>{book.saleInfo.listPrice.amount} {book.saleInfo.listPrice.currencyCode}</p> : <p className='paragraph-info-book'>Prix non disponible</p>}
                 </div>
                 <div className="container-resume">
                     <h2>Résumé :</h2>

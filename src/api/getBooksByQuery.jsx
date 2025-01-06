@@ -13,6 +13,7 @@ export const fetchBooks = async (query) => {
         maxResults: 40,
         startIndex: 0,
         printType: 'books',
+        orderBy: 'relevance',
         langRestrict: 'fr' // Type de résultat à afficher
       },
     });

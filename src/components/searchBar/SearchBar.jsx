@@ -3,13 +3,14 @@ import './SearchBar.css';
 import Button from '../ui/Button';
 import { fetchBooks } from '../../api/getBooksByQuery';
 import QueryResultSection from './QueryResultSection';
-import {addBooksToArray} from '../../utils/allBooksArray/addBooksToArray';
+import { addBooksToArray } from '../../utils/allBooksArray/addBooksToArray';
 import { AppContext } from '../../context/context';
+import './spinnerSearchBar.css';
 
 const SearchBar = () => {
     const [userText, setUserText] = useState('');
-    const {resultFetch, setResultFetch } = useContext(AppContext);
-
+    const { resultFetch, setResultFetch } = useContext(AppContext);
+    const [isLoading, setIsLoading] = useState(false);
 
     const textTaping = (e) => {
         setUserText(e.target.value);
@@ -21,6 +22,8 @@ const SearchBar = () => {
 
     const handleSubmitSearch = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
+
         try {
             setUserText("");
             const result = await fetchBooks(userText);
@@ -31,6 +34,8 @@ const SearchBar = () => {
 
         } catch (error) {
             console.error('Error fetching books:', error);
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -44,22 +49,26 @@ const SearchBar = () => {
         <>
             <div className="container-search-bar">
                 <form action="submit" className='form-search-bar'>
-                    <input 
-                        type="text" 
-                        placeholder="Rechercher un livre" 
-                        className='input-search-bar' 
-                        onChange={textTaping} 
+                    <input
+                        type="text"
+                        placeholder="Rechercher un livre"
+                        className='input-search-bar'
+                        onChange={textTaping}
                         value={userText}
                     />
-                    <Button 
-                        type="submit" 
-                        className='button-search-bar' 
-                        text="Rechercher" 
-                        onClick={handleSubmitSearch} 
-                    />
+                    {isLoading ? (
+                        <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>  // Ici vous pouvez mettre une animation comme un spinner
+                    ) : (
+                        <Button
+                            type="submit"
+                            className='button-search-bar'
+                            text="Rechercher"
+                            onClick={handleSubmitSearch}
+                        />
+                    )}
                 </form>
             </div>
-            {resultFetch ? <QueryResultSection books={resultFetch} /> : null}
+            {resultFetch && <QueryResultSection books={resultFetch} />}
         </>
     );
 };

@@ -14,3 +14,12 @@ main {
     font-size: 2.5rem;
     color: #333;
 }
+
+.dark-mode .home-title {
+    color: white;
+}
+
+.dark-mode {
+    background-color: var(--text-dark);
+    color: #fff;
+}
