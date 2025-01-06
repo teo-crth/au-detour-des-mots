@@ -2,14 +2,18 @@ import React, { useState, useContext, useEffect } from 'react';
 import './searchPage.css';
 import SearchBar from '../../components/searchBar/SearchBar';
 import { AppContext } from '../../context/context';
-import { use } from 'react';
 
 const SearchPage = () => {
-    const { resultFetch } = useContext(AppContext);
-    const [categories, setCategories] = useContext(AppContext);   
-    const [selectedCategories, setSelectedCategories] = useContext(AppContext);
-    const [selectedStars, setSelectedStars] = useContext(AppContext);
-    const [filteredBooks, setFilteredBooks] = useContext(AppContext);
+    const {
+        categories,
+        setCategories,
+        selectedCategories,
+        setSelectedCategories,
+        selectedStars,
+        setSelectedStars,
+        filteredBooks,
+        setFilteredBooks
+    } = useContext(AppContext);
     const stars = [1, 2, 3, 4, 5];
 
     // // Извлечение уникальных категорий
