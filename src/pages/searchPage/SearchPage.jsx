@@ -77,7 +77,7 @@ const SearchPage = () => {
                         </div>
                     </div>
                     <div className="filter-item">
-                        <h3>Étoiles :</h3>
+                        <h3>Notes :</h3>
                         <div className="checkbox-group">
                             {/* Display all available star ratings */}
                             {[0, 1, 2, 3, 4, 5].map((star) => (
