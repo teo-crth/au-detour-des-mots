@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
+import { use } from "react";
 
 // Création du contexte
 export const AppContext = createContext();
@@ -47,8 +48,13 @@ const toggleTheme = () => {
     setIsDarkMode(prevMode => !prevMode);
 };
 
+    const [categories, setCategories] = useState([]);   
+    const [selectedCategories, setSelectedCategories] = useState([]);
+    const [selectedStars, setSelectedStars] = useState([]);
+    const [filteredBooks, setFilteredBooks] = useState([]);
+
   return (
-    <AppContext.Provider value={{ isLiked, handleLike, setIsLiked, menuOpen, setMenuOpen, resultFetch, setResultFetch, isDarkMode, toggleTheme }}>
+    <AppContext.Provider value={{ isLiked, handleLike, setIsLiked, menuOpen, setMenuOpen, resultFetch, setResultFetch, isDarkMode, toggleTheme, categories, setCategories, selectedCategories, setSelectedCategories, selectedStars, setSelectedStars, filteredBooks, setFilteredBooks }}>
       {children}
     </AppContext.Provider>
   );

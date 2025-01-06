@@ -2,81 +2,82 @@ import React, { useState, useContext, useEffect } from 'react';
 import './searchPage.css';
 import SearchBar from '../../components/searchBar/SearchBar';
 import { AppContext } from '../../context/context';
+import { use } from 'react';
 
 const SearchPage = () => {
-    const { ResultFetch = [] } = useContext(AppContext);
-    const [categories, setCategories] = useState([]);
-    const [selectedCategories, setSelectedCategories] = useState([]);
-    const [selectedStars, setSelectedStars] = useState([]);
-    const [filteredBooks, setFilteredBooks] = useState([]);
+    const { resultFetch } = useContext(AppContext);
+    const [categories, setCategories] = useContext(AppContext);   
+    const [selectedCategories, setSelectedCategories] = useContext(AppContext);
+    const [selectedStars, setSelectedStars] = useContext(AppContext);
+    const [filteredBooks, setFilteredBooks] = useContext(AppContext);
     const stars = [1, 2, 3, 4, 5];
 
-    // Извлечение уникальных категорий
-    useEffect(() => {
-        if (ResultFetch.length > 0) {
-            const allCategories = ResultFetch.flatMap(
-                (book) => book.volumeInfo.categories || []
-            );
-            const uniqueCategories = [...new Set(allCategories)];
+    // // Извлечение уникальных категорий
+    // useEffect(() => {
+    //     if (ResultFetch.length > 0) {
+    //         const allCategories = ResultFetch.flatMap(
+    //             (book) => book.volumeInfo.categories || []
+    //         );
+    //         const uniqueCategories = [...new Set(allCategories)];
 
-            // Проверяем, изменились ли категории
-            if (JSON.stringify(categories) !== JSON.stringify(uniqueCategories)) {
-                setCategories(uniqueCategories);
-            }
+    //         // Проверяем, изменились ли категории
+    //         if (JSON.stringify(categories) !== JSON.stringify(uniqueCategories)) {
+    //             setCategories(uniqueCategories);
+    //         }
 
-            // Проверяем, изменились ли книги
-            if (JSON.stringify(filteredBooks) !== JSON.stringify(ResultFetch)) {
-                setFilteredBooks(ResultFetch);
-            }
-        }
-    }, [ResultFetch]);
+    //         // Проверяем, изменились ли книги
+    //         if (JSON.stringify(filteredBooks) !== JSON.stringify(ResultFetch)) {
+    //             setFilteredBooks(ResultFetch);
+    //         }
+    //     }
+    // }, [ResultFetch]);
 
-    // Фильтрация книг
-    useEffect(() => {
-        let books = ResultFetch;
+    // // Фильтрация книг
+    // useEffect(() => {
+    //     let books = ResultFetch;
 
-        if (selectedCategories.length > 0) {
-            books = books.filter((book) =>
-                (book.volumeInfo.categories || []).some((cat) =>
-                    selectedCategories.includes(cat)
-                )
-            );
-        }
+    //     if (selectedCategories.length > 0) {
+    //         books = books.filter((book) =>
+    //             (book.volumeInfo.categories || []).some((cat) =>
+    //                 selectedCategories.includes(cat)
+    //             )
+    //         );
+    //     }
 
-        if (selectedStars.length > 0) {
-            books = books.filter((book) => {
-                const rating = Math.round(book.volumeInfo.averageRating || 0);
-                return selectedStars.includes(rating);
-            });
-        }
+    //     if (selectedStars.length > 0) {
+    //         books = books.filter((book) => {
+    //             const rating = Math.round(book.volumeInfo.averageRating || 0);
+    //             return selectedStars.includes(rating);
+    //         });
+    //     }
 
-        // Проверяем, изменились ли отфильтрованные книги
-        if (JSON.stringify(filteredBooks) !== JSON.stringify(books)) {
-            setFilteredBooks(books);
-        }
-    }, [selectedCategories, selectedStars, ResultFetch]);
+    //     // Проверяем, изменились ли отфильтрованные книги
+    //     if (JSON.stringify(filteredBooks) !== JSON.stringify(books)) {
+    //         setFilteredBooks(books);
+    //     }
+    // }, [selectedCategories, selectedStars, ResultFetch]);
+
+    // const handleStarChange = (star) => {
+    //     setSelectedStars((prev) =>
+    //         prev.includes(star)
+    //             ? prev.filter((item) => item !== star)
+    //             : [...prev, star]
+    //     );
+    // };
 
     const handleCategoryChange = (category) => {
-        setSelectedCategories((prev) =>
-            prev.includes(category)
-                ? prev.filter((item) => item !== category)
-                : [...prev, category]
-        );
-    };
-
-    const handleStarChange = (star) => {
-        setSelectedStars((prev) =>
-            prev.includes(star)
-                ? prev.filter((item) => item !== star)
-                : [...prev, star]
-        );
-    };
+    setSelectedCategories((prev) =>
+        prev.includes(category)
+            ? prev.filter((item) => item !== category)
+            : [...prev, category]
+    );
+};
 
     return (
         <div className="search-page">
             <h1 className="title">Rechercher et filtrer les livres</h1>
             <div className="top-bar">
-                <SearchBar />
+                <SearchBar/>
             </div>
             <div className="content">
                 <aside className="sidebar">
@@ -84,15 +85,15 @@ const SearchPage = () => {
                         <h3>Catégories :</h3>
                         <div className="checkbox-group">
                             {categories.map((category) => (
-                                <label key={category}>
+                                    <>  
                                     <input
                                         type="checkbox"
                                         value={category}
                                         checked={selectedCategories.includes(category)}
                                         onChange={() => handleCategoryChange(category)}
                                     />
-                                    {category}
-                                </label>
+                                    <label>{category}</label>
+                                    </>
                             ))}
                         </div>
                     </div>
