@@ -80,24 +80,23 @@ const SearchPage = () => {
     return (
         <div className="search-page">
             <h1 className="title">Rechercher et filtrer les livres</h1>
-            <div className="top-bar">
-                <SearchBar/>
-            </div>
             <div className="content">
                 <aside className="sidebar">
                     <div className="filter-item">
                         <h3>Catégories :</h3>
                         <div className="checkbox-group">
                             {categories.map((category) => (
-                                    <>  
+                                <>  
+                                    <div className="containerInput">
                                     <input
                                         type="checkbox"
                                         value={category}
                                         checked={selectedCategories.includes(category)}
                                         onChange={() => handleCategoryChange(category)}
                                     />
-                                    <label>{category}</label>
-                                    </>
+                                    <label className='label-categoriesFilter'>{category}</label>
+                                    </div>
+                                </>
                             ))}
                         </div>
                     </div>
@@ -125,14 +124,7 @@ const SearchPage = () => {
                 </aside>
 
                 <main className="main-content">
-                    <h3>Résultats :</h3>
-                    {filteredBooks.length > 0 ? (
-                        <div className="book-list">
-                            <BookCard array={filteredBooks} />
-                        </div>
-                    ) : (
-                        <p>Aucun livre trouvé pour les filtres sélectionnés.</p>
-                    )}
+                <SearchBar/>
                 </main>
             </div>
         </div>
