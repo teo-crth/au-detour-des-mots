@@ -34,6 +34,7 @@ const QueryResultSection = ({ books }) => {
       Math.round(book.volumeInfo.averageRating || 0)
     );
     const uniqueStars = [...new Set(allStars)];
+    uniqueStars.sort((a, b) => a - b);
     setSelectedStars(uniqueStars);
   };
 
