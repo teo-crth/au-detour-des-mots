@@ -126,6 +126,7 @@ a {
     background-color: var(--bg-dark-bookcard);
     color: #fff;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    border: 1px solid;
 }
 
 .dark-mode .author-name, .dark-mode .author-title, .dark-mode .rating-title, .dark-mode .book-title {
