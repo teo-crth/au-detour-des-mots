@@ -18,17 +18,6 @@ const Header = () => {
 
     return (
         <header>
-            {/* cehmin essayé : 
-                /au-detour-des-mots/public/assets/images/logo-table.webp
-                ./public/assets/images/logo-table.webp
-                ../../../public/assets/images/logo-table.webp
-                /public/assets/images/logo-table.webp
-                /assets/images/logo-table.webp
-                /images/logo-table.webp
-                ../../../../public/assets/images/logo-table.webp
-                /logo-table.webp
-                ../../../public/assets/logo-table.webp
-            */}
             <NavLink to="/au-detour-des-mots" className={({ isActive }) => isActive ? 'active' : ''}><img src={logo} alt="Logo table avec des livres" /></NavLink>
                 <nav className="nav-desktop">
                     <NavLink to="/au-detour-des-mots" className={({ isActive }) => isActive ? 'active' : ''}>Accueil</NavLink>
