@@ -26,7 +26,7 @@
 
 /* Section gauche */
 .sidebar {
-    flex: 0 0 20%; 
+    flex: 0 0 25%; 
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -49,6 +49,13 @@
 .checkbox-group {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+}
+
+.containerInput {
+    display: flex;
+    align-items: center;
+    justify-content: start;
     gap: 10px;
 }
 
@@ -113,4 +120,8 @@ input[type="checkbox"]:checked {
 .dark-mode .filter-item, .dark-mode .selected-filters, .dark-mode label, .dark-mode .main-content {
     background-color: var(--bg-dark-bookcard);
     color: #fff;
+}
+
+.label-categoriesFilter {
+    font-size: 0.8rem;
 }

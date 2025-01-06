@@ -1,20 +1,66 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './searchPage.css';
 import SearchBar from '../../components/searchBar/SearchBar';
+import { AppContext } from '../../context/context';
 
 const SearchPage = () => {
-    const [selectedCategories, setSelectedCategories] = useState([]); // Catégories sélectionnées
-    const [selectedStars, setSelectedStars] = useState([]); // Étoiles sélectionnées
+    const {
+        categories,
+        setCategories,
+        selectedCategories,
+        setSelectedCategories,
+        selectedStars,
+        setSelectedStars,
+        filteredBooks,
+        setFilteredBooks
+    } = useContext(AppContext);
 
-    const handleCategoryChange = (category) => {
-        setSelectedCategories((prev) =>
-            prev.includes(category)
-                ? prev.filter((item) => item !== category)
-                : [...prev, category]
-        );
-    };
+    // // Извлечение уникальных категорий
+    // useEffect(() => {
+    //     if (ResultFetch.length > 0) {
+    //         const allCategories = ResultFetch.flatMap(
+    //             (book) => book.volumeInfo.categories || []
+    //         );
+    //         const uniqueCategories = [...new Set(allCategories)];
 
-    const handleStarsChange = (star) => {
+    //         // Проверяем, изменились ли категории
+    //         if (JSON.stringify(categories) !== JSON.stringify(uniqueCategories)) {
+    //             setCategories(uniqueCategories);
+    //         }
+
+    //         // Проверяем, изменились ли книги
+    //         if (JSON.stringify(filteredBooks) !== JSON.stringify(ResultFetch)) {
+    //             setFilteredBooks(ResultFetch);
+    //         }
+    //     }
+    // }, [ResultFetch]);
+
+    // // Фильтрация книг
+    // useEffect(() => {
+    //     let books = ResultFetch;
+
+    //     if (selectedCategories.length > 0) {
+    //         books = books.filter((book) =>
+    //             (book.volumeInfo.categories || []).some((cat) =>
+    //                 selectedCategories.includes(cat)
+    //             )
+    //         );
+    //     }
+
+    //     if (selectedStars.length > 0) {
+    //         books = books.filter((book) => {
+    //             const rating = Math.round(book.volumeInfo.averageRating || 0);
+    //             return selectedStars.includes(rating);
+    //         });
+    //     }
+
+    //     // Проверяем, изменились ли отфильтрованные книги
+    //     if (JSON.stringify(filteredBooks) !== JSON.stringify(books)) {
+    //         setFilteredBooks(books);
+    //     }
+    // }, [selectedCategories, selectedStars, ResultFetch]);
+
+    const handleStarChange = (star) => {
         setSelectedStars((prev) =>
             prev.includes(star)
                 ? prev.filter((item) => item !== star)
@@ -22,47 +68,47 @@ const SearchPage = () => {
         );
     };
 
+    const handleCategoryChange = (category) => {
+    setSelectedCategories((prev) =>
+        prev.includes(category)
+            ? prev.filter((item) => item !== category)
+            : [...prev, category]
+    );
+};
+
     return (
         <div className="search-page">
-            <h1 className="title">Filtrer les livres</h1>
-            <div className="top-bar">
-                <SearchBar />
-            </div>
+            <h1 className="title">Rechercher et filtrer les livres</h1>
             <div className="content">
-                {/* Section gauche : Filtres */}
                 <aside className="sidebar">
                     <div className="filter-item">
                         <h3>Catégories :</h3>
                         <div className="checkbox-group">
-                            {['Fiction', 'Science', 'Histoire', 'Fantastique'].map((category) => (
-                                <label
-                                    key={category}
-                                    className={selectedCategories.includes(category.toLowerCase()) ? 'active' : ''}
-                                >
+                            {categories.map((category) => (
+                                <>  
+                                    <div className="containerInput">
                                     <input
                                         type="checkbox"
-                                        value={category.toLowerCase()}
-                                        checked={selectedCategories.includes(category.toLowerCase())}
-                                        onChange={() => handleCategoryChange(category.toLowerCase())}
+                                        value={category}
+                                        checked={selectedCategories.includes(category)}
+                                        onChange={() => handleCategoryChange(category)}
                                     />
-                                    {category}
-                                </label>
+                                    <label className='label-categoriesFilter'>{category}</label>
+                                    </div>
+                                </>
                             ))}
                         </div>
                     </div>
                     <div className="filter-item">
                         <h3>Étoiles :</h3>
                         <div className="checkbox-group">
-                            {[1, 2, 3, 4, 5].map((star) => (
-                                <label
-                                    key={star}
-                                    className={selectedStars.includes(star) ? 'active' : ''}
-                                >
+                            {selectedStars.map((star) => (
+                                <label key={star}>
                                     <input
                                         type="checkbox"
                                         value={star}
                                         checked={selectedStars.includes(star)}
-                                        onChange={() => handleStarsChange(star)}
+                                        onChange={() => handleStarChange(star)}
                                     />
                                     {star} étoile{star > 1 ? 's' : ''}
                                 </label>
@@ -76,9 +122,8 @@ const SearchPage = () => {
                     </div>
                 </aside>
 
-                {/* Section droite : Contenu расширенный */}
                 <main className="main-content">
-                    {/* Здесь можно добавить содержимое, например, список книг */}
+                <SearchBar/>
                 </main>
             </div>
         </div>
