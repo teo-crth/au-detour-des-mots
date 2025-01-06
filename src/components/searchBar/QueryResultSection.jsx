@@ -15,7 +15,7 @@ const QueryResultSection = ({ books }) => {
     setFilteredBooks,
   } = useContext(AppContext);
 
-    // FIND CATEGORIES OF THE BOOKS AND SAVE IT IN STATE
+  // FIND CATEGORIES OF THE BOOKS AND SAVE IT IN STATE
   const findUniqueCategories = (books) => {
     const allCategories = books.map(
       (book) => book.volumeInfo.categories || []
@@ -28,14 +28,14 @@ const QueryResultSection = ({ books }) => {
     findUniqueCategories(books);
   }, [books]);
 
-  // FIND RATE OF THE BOOKS AND SAVE IT IN STATE
+  // FIND RATE OF THE BOOKS (don't reset selectedStars here)
   const findUniqueStars = (books) => {
     const allStars = books.map((book) =>
       Math.round(book.volumeInfo.averageRating || 0)
     );
     const uniqueStars = [...new Set(allStars)];
     uniqueStars.sort((a, b) => a - b);
-    setSelectedStars(uniqueStars);
+    setSelectedStars(uniqueStars);  // Update available stars to select
   };
 
   useEffect(() => {
@@ -76,7 +76,7 @@ const QueryResultSection = ({ books }) => {
 
   return (
     <div className='container-query-result'>
-      {/* Affichage des livres filtrés */}
+      {/* Display filtered books */}
       <BookCard array={filteredBooks} />
     </div>
   );

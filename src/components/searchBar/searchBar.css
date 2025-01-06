@@ -40,7 +40,7 @@
 
 @media screen and (min-width: 768px) {
   .form-search-bar {
-    width: 50%;
+    width: 100%;
     flex-direction: row;
   }
     

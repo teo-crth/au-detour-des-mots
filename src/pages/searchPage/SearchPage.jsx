@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './searchPage.css';
 import SearchBar from '../../components/searchBar/SearchBar';
 import { AppContext } from '../../context/context';
@@ -7,6 +7,7 @@ const SearchPage = () => {
     const {
         categories,
         setCategories,
+        resultFetch,
         selectedCategories,
         setSelectedCategories,
         selectedStars,
@@ -15,66 +16,44 @@ const SearchPage = () => {
         setFilteredBooks
     } = useContext(AppContext);
 
-    // // Извлечение уникальных категорий
-    // useEffect(() => {
-    //     if (ResultFetch.length > 0) {
-    //         const allCategories = ResultFetch.flatMap(
-    //             (book) => book.volumeInfo.categories || []
-    //         );
-    //         const uniqueCategories = [...new Set(allCategories)];
-
-    //         // Проверяем, изменились ли категории
-    //         if (JSON.stringify(categories) !== JSON.stringify(uniqueCategories)) {
-    //             setCategories(uniqueCategories);
-    //         }
-
-    //         // Проверяем, изменились ли книги
-    //         if (JSON.stringify(filteredBooks) !== JSON.stringify(ResultFetch)) {
-    //             setFilteredBooks(ResultFetch);
-    //         }
-    //     }
-    // }, [ResultFetch]);
-
-    // // Фильтрация книг
-    // useEffect(() => {
-    //     let books = ResultFetch;
-
-    //     if (selectedCategories.length > 0) {
-    //         books = books.filter((book) =>
-    //             (book.volumeInfo.categories || []).some((cat) =>
-    //                 selectedCategories.includes(cat)
-    //             )
-    //         );
-    //     }
-
-    //     if (selectedStars.length > 0) {
-    //         books = books.filter((book) => {
-    //             const rating = Math.round(book.volumeInfo.averageRating || 0);
-    //             return selectedStars.includes(rating);
-    //         });
-    //     }
-
-    //     // Проверяем, изменились ли отфильтрованные книги
-    //     if (JSON.stringify(filteredBooks) !== JSON.stringify(books)) {
-    //         setFilteredBooks(books);
-    //     }
-    // }, [selectedCategories, selectedStars, ResultFetch]);
-
+    // Handle star rating selection
     const handleStarChange = (star) => {
         setSelectedStars((prev) =>
             prev.includes(star)
-                ? prev.filter((item) => item !== star)
-                : [...prev, star]
+                ? prev.filter((item) => item !== star)  // Remove star
+                : [...prev, star]  // Add star
         );
     };
 
+    // Handle category selection
     const handleCategoryChange = (category) => {
-    setSelectedCategories((prev) =>
-        prev.includes(category)
-            ? prev.filter((item) => item !== category)
-            : [...prev, category]
-    );
-};
+        setSelectedCategories((prev) =>
+            prev.includes(category)
+                ? prev.filter((item) => item !== category)  // Remove category
+                : [...prev, category]  // Add category
+        );
+    };
+
+    // Calculate number of books in each category
+    const getCategoryCount = (category) => {
+        if (resultFetch && Array.isArray(resultFetch)) {
+            return resultFetch.filter((book) =>
+                (book.volumeInfo.categories || []).includes(category)
+            ).length;
+        }
+        return 0;  // Return 0 if resultFetch is null or not an array
+    };
+
+    // Calculate number of books in each star rating
+    const getStarCount = (star) => {
+        if (resultFetch && Array.isArray(resultFetch)) {
+            return resultFetch.filter((book) => {
+                const rating = Math.round(book.volumeInfo.averageRating || 0);
+                return rating === star;
+            }).length;
+        }
+        return 0;  // Return 0 if resultFetch is null or not an array
+    };
 
     return (
         <div className="search-page">
@@ -85,24 +64,23 @@ const SearchPage = () => {
                         <h3>Catégories :</h3>
                         <div className="checkbox-group">
                             {categories.map((category) => (
-                                <>  
-                                    <div className="containerInput">
+                                <div className="containerInput" key={category}>
                                     <input
                                         type="checkbox"
                                         value={category}
                                         checked={selectedCategories.includes(category)}
                                         onChange={() => handleCategoryChange(category)}
                                     />
-                                    <label className='label-categoriesFilter'>{category}</label>
-                                    </div>
-                                </>
+                                    <label className='label-categoriesFilter'>{category} <span className='numberOfBooks'>({getCategoryCount(category)})</span></label>
+                                </div>
                             ))}
                         </div>
                     </div>
                     <div className="filter-item">
                         <h3>Étoiles :</h3>
                         <div className="checkbox-group">
-                            {selectedStars.map((star) => (
+                            {/* Display all available star ratings */}
+                            {[0, 1, 2, 3, 4, 5].map((star) => (
                                 <label key={star}>
                                     <input
                                         type="checkbox"
@@ -110,20 +88,15 @@ const SearchPage = () => {
                                         checked={selectedStars.includes(star)}
                                         onChange={() => handleStarChange(star)}
                                     />
-                                    {star} étoile{star > 1 ? 's' : ''}
+                                    {star} étoile{star > 1 ? 's' : ''} <span className='numberOfBooks'>({getStarCount(star)})</span>
                                 </label>
                             ))}
                         </div>
                     </div>
-                    <div className="selected-filters">
-                        <h3>Filtres sélectionnés :</h3>
-                        <p><strong>Catégories :</strong> {selectedCategories.join(', ') || 'Aucune'}</p>
-                        <p><strong>Étoiles :</strong> {selectedStars.join(', ') || 'Aucune'}</p>
-                    </div>
                 </aside>
 
                 <main className="main-content">
-                <SearchBar/>
+                    <SearchBar />
                 </main>
             </div>
         </div>

@@ -135,6 +135,6 @@ a {
 
 @media screen and (min-width: 768px) {
     .book-card {
-        width: 200px;
+        width: 150px;
     }  
 }
