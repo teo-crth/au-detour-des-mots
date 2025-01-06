@@ -52,7 +52,7 @@ const BookCard = ({ array }) => {
                                     </svg>
                                 </span>
                                 : null}
-                            <Link to={`/livre/${book.id}`} className="book-link">
+                            <Link to={`/au-detour-des-mots/livre/${book.id}`} className="book-link">
                                 <div className="container-img">
                                     <img src={book?.volumeInfo?.imageLinks?.thumbnail || placeholder} alt={`Image du livre ${book?.volumeInfo?.title}`} />
                                 </div>
