@@ -14,7 +14,6 @@ const SearchPage = () => {
         filteredBooks,
         setFilteredBooks
     } = useContext(AppContext);
-    const stars = [1, 2, 3, 4, 5];
 
     // // Извлечение уникальных категорий
     // useEffect(() => {
@@ -61,13 +60,13 @@ const SearchPage = () => {
     //     }
     // }, [selectedCategories, selectedStars, ResultFetch]);
 
-    // const handleStarChange = (star) => {
-    //     setSelectedStars((prev) =>
-    //         prev.includes(star)
-    //             ? prev.filter((item) => item !== star)
-    //             : [...prev, star]
-    //     );
-    // };
+    const handleStarChange = (star) => {
+        setSelectedStars((prev) =>
+            prev.includes(star)
+                ? prev.filter((item) => item !== star)
+                : [...prev, star]
+        );
+    };
 
     const handleCategoryChange = (category) => {
     setSelectedCategories((prev) =>
@@ -103,7 +102,7 @@ const SearchPage = () => {
                     <div className="filter-item">
                         <h3>Étoiles :</h3>
                         <div className="checkbox-group">
-                            {stars.map((star) => (
+                            {selectedStars.map((star) => (
                                 <label key={star}>
                                     <input
                                         type="checkbox"
