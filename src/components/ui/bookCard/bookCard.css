@@ -41,9 +41,10 @@ a {
 }
 
 .container-img img {
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 5px;
-    width: 50%;
+    width: auto;
+    height: 200px;
     box-shadow: 0px 0px 5px 0px rgba(130, 130, 130, 0.75);
 }
 
@@ -53,11 +54,13 @@ a {
     align-items: center;
     gap: 5px;
     width: 100%;
+    color: var(--bg-dark-bookcard);
     margin-bottom: 5px;
 }
 
 .author-title,
 .author-name {
+    color: var(--bg-dark-bookcard);
     font-size: 0.8rem;
 }
 
@@ -66,17 +69,9 @@ a {
     color: #727272;
 }
 
-.rating-title {
-    margin-bottom: 10px;
-    font-size: 0.5rem;
-    font-weight: 400;
-    color: #727272;
-    margin-top: 1rem;
-}
-
 .author-name {
     font-weight: 700;
-    color: var(--button-dark-color);
+    color: var(--bg-dark-bookcard);
 }
 
 .book-card__heart {
@@ -94,24 +89,26 @@ a {
     fill: red;
 }
 
+.rating-container {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    margin-bottom: 5px;
+
+    margin-top: 5px;
+}
 
 .rating-title {
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     font-size: 0.5rem;
     font-weight: 400;
     color: #727272;
 }
 
-
-.rating-container {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-}
-
 .star-icon {
-    font-size: 0.85rem;
-    color: var(--button-dark-color);
+    margin-bottom: 0px;
+    font-size: 0.75rem;
+    color: var(--button-light-color);
 }
 
 .container-author-name {
@@ -129,12 +126,15 @@ a {
     border: 1px solid;
 }
 
-.dark-mode .author-name, .dark-mode .author-title, .dark-mode .rating-title, .dark-mode .book-title {
+.dark-mode .author-name,
+.dark-mode .author-title,
+.dark-mode .rating-title,
+.dark-mode .book-title {
     color: #fff;
 }
 
 @media screen and (min-width: 768px) {
     .book-card {
         width: 200px;
-    }  
+    }
 }
