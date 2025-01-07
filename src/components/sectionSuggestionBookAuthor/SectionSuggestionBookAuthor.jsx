@@ -4,9 +4,15 @@ import BookCard from '../ui/bookCard/BookCard'
 import './sectionSuggestionBookAuthor.css'
 
 const sectionSuggestionBookAuthor = ({ book }) => {
+
     const catBook = book.volumeInfo?.authors[0];
-    const sameBook = allBooksArray.filter((books) => books.volumeInfo.authors == catBook).filter((books) => books.id != book.id);
+
+    const sameBook = allBooksArray.filter((books) =>
+        books.volumeInfo.authors == catBook).filter((books) =>
+            books.id != book.id);
+
     const sameBookLimited = sameBook.slice(0, 3);
+
     return (
         <div>
             {sameBookLimited.length > 0 ? (
