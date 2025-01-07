@@ -46,11 +46,14 @@ const SectionCategories = () => {
             <h2 className='section-title'>Top 10 des genres Littéraires</h2>
             <div className='container-book-categories'>
                 {topCategories.map((category) => (
-                    <div key={category}>
-                        <div className='book-category' onClick={() => handleClick(category)}>
-                            <h3>{category}</h3>
-                        </div>
+                    <div
+                        key={category}
+                        className={`book-category ${selectedCategory === category ? 'active' : ''}`}
+                        onClick={() => handleClick(category)}
+                    >
+                        <h3>{category}</h3>
                     </div>
+
                 ))}
 
                 {/* Afficher les livres de la catégorie sélectionnée en dessous de toutes les catégories */}
