@@ -6,9 +6,7 @@ import './sectionSuggestionBook.css'
 const sectionSuggestionBook = ({ book }) => {
 
     if (book.volumeInfo?.categories) {
-        console.log(book)
         const catBook = book.volumeInfo?.categories[0];
-        console.log('zdhdziuhdziuhzkdizo', catBook);
         const sameBook = allBooksArray.filter((books) => books?.volumeInfo?.categories == catBook).filter((books) => books.id != book.id);
         console.log(sameBook);
         if (sameBook.length < 1 || !catBook) {
@@ -19,6 +17,9 @@ const sectionSuggestionBook = ({ book }) => {
         const randomIndex2 = Math.floor(Math.random() * sameBook.length) + 1;
         const randomIndex3 = Math.floor(Math.random() * sameBook.length) + 1;
         const sameBookLimited = [sameBook[randomIndex1], sameBook[randomIndex2], sameBook[randomIndex3]];
+        if (sameBook.length < 3) {
+        sameBookLimited = sameBook=[sameBook.lenght];
+        }
 
         return (
             <div>
