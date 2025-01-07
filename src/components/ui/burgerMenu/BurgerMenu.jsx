@@ -22,9 +22,9 @@ const BurgerMenu = () => {
                 <FontAwesomeIcon icon={faXmark} />
             </div>
             <nav className='nav-mobile'>
-                <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''} onClick={handleLink}>Accueil</NavLink>
-                <NavLink to="/mes-livres" className={({ isActive }) => isActive ? 'active' : ''} onClick={handleLink}>Mes livres</NavLink>
-                <NavLink to="/recherche" className={({ isActive }) => isActive ? 'active' : ''} onClick={handleLink}>Recherche</NavLink>
+                <NavLink to="/au-detour-des-mots" className={({ isActive }) => isActive ? 'active' : ''} onClick={handleLink}>Accueil</NavLink>
+                <NavLink to="/au-detour-des-mots/mes-livres" className={({ isActive }) => isActive ? 'active' : ''} onClick={handleLink}>Mes livres</NavLink>
+                <NavLink to="/au-detour-des-mots//recherche" className={({ isActive }) => isActive ? 'active' : ''} onClick={handleLink}>Recherche</NavLink>
             </nav>
         </div>
     );
