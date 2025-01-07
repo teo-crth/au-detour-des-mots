@@ -39,7 +39,7 @@ const BookCard = ({ array }) => {
 
     return (
         <>
-        
+
             <div className='container-books-liked'>
                 {array.map((book) => {
                     const averageRating = book?.volumeInfo?.averageRating || 0;  // Default to 0 if no rating
@@ -66,11 +66,16 @@ const BookCard = ({ array }) => {
                                             );
                                         })}
                                     </div>
+
+                                </div>
+                            </Link>
+                            <div>
+                                <div className='rating-container'>
                                     <p className='rating-title'>Note :</p>
                                     <div className='rating'>{renderStars(averageRating)}</div>
                                 </div>
-                            </Link>
-                            <Button text={isInArray(book) ? 'Ajouté !' : 'Ajouter'} onClick={isInArray(book) ? null : () => handleLike(book)} className={isInArray(book) ? "book-card-button-already-liked" : "book-card-button"} />
+                                <Button text={isInArray(book) ? 'Ajouté !' : 'Ajouter'} onClick={isInArray(book) ? null : () => handleLike(book)} className={isInArray(book) ? "book-card-button-already-liked" : "book-card-button"} />
+                            </div>
                         </div >
                     )
                 })}
