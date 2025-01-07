@@ -4,9 +4,15 @@ import BookCard from '../ui/bookCard/BookCard'
 import './sectionSuggestionBook.css'
 
 const sectionSuggestionBook = ({ book }) => {
+
     const catBook = book.volumeInfo?.categories[0];
-    const sameBook = allBooksArray.filter((books) => books.volumeInfo.categories == catBook).filter((books) => books.id != book.id);
-    /*const sameBookLimited = sameBook.slice(0, 3);*/
+    console.log('catBook', catBook);
+    
+    
+    const sameBook = allBooksArray.filter((books) => books?.volumeInfo?.categories == catBook).filter((books) => books.id != book.id);
+    if (sameBook.length < 1) {
+        return (<h2 className='suggestBookTitle'>Aucune catégorie n'a été trouvée</h2>);
+    }
 
     const randomIndex1 = Math.floor(Math.random() * sameBook.length) + 1;
     const randomIndex2 = Math.floor(Math.random() * sameBook.length) + 1;
@@ -18,7 +24,6 @@ const sectionSuggestionBook = ({ book }) => {
         <div>
             <h2 className='suggestBookTitle'>Livres suggérés</h2>
             <BookCard array={sameBookLimited} />
-
         </div>
     );
 };
