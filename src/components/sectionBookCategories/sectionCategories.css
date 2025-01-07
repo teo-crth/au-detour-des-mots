@@ -42,8 +42,17 @@ section {
     color: white;
     background-color: var(--button-light-color);
 }
+
+.book-category.active {
+    background-color: var(--button-light-color);
+    /* Couleur lorsque la catégorie est active */
+    color: white;
+    /* Couleur du texte pour contraster */
+}
+
 .book-list.hidden {
-    display: block; /* Les livres deviennent visibles quand 'hidden' est retiré */
+    display: block;
+    /* Les livres deviennent visibles quand 'hidden' est retiré */
 }
 
 .section-title {
