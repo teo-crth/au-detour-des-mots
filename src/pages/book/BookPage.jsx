@@ -8,7 +8,8 @@ import { AppContext } from '../../context/context';
 import dayjs from 'dayjs';
 import localeData from 'dayjs/plugin/localeData';
 import 'dayjs/locale/fr';
-import SectionSuggestionBook from '../../components/sectionSuggestionBook/SectionSuggestionBook'
+import SectionSuggestionBook from '../../components/sectionSuggestionBook/SectionSuggestionBook';
+import SectionSuggestionBookAuthor from '../../components/sectionSuggestionBookAuthor/SectionSuggestionBookAuthor';
 
 dayjs.extend(localeData);
 dayjs.locale('fr');
@@ -89,6 +90,7 @@ const BookPage = () => {
 
             </div>
             <SectionSuggestionBook book={book} />
+            <SectionSuggestionBookAuthor book={book} />
         </>
     );
 };

@@ -5,6 +5,7 @@ section {
     align-items: center;
     padding: 20px;
     background-color: var(--background-color);
+    width: 80%;
 }
 
 .container-book-categories {

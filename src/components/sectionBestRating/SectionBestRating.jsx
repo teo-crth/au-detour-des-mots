@@ -18,7 +18,7 @@ const sectionBestRating = () => {
 
 
     // Conserver les 10 premières entrées
-    const bestRating = sortedBooks.slice(0, 10);
+    const bestRating = sortedBooks.slice(0, 5);
 
     return (
         <section>
