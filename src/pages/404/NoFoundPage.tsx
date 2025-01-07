@@ -9,19 +9,16 @@ const NoFoundPage = () => {
     const navigate = useNavigate();
 
     const handleBackToHome = () => {
-        navigate("/");
+        navigate("/au-detour-des-mots");
     }
     return (
         <>
-            < Header/>
             <div className='container'>
                 <h1>Page introuvable</h1>
                 <iframe src="https://giphy.com/embed/jU9OCvBiO1besabUKU" width="480" height="269" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
                 <h2>Vous êtes perdu ? Félicitation vous êtes un aventurier !</h2>
                 < Button onClick={() => handleBackToHome()} text="Retour à l'accueil" type="button" className="book-card-button" />
             </div>
-            
-            < Footer />
         </>
     );
 };
