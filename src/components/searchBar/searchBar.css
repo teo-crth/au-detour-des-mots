@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.search-page {
+  width: 100%;
+}
+
 .form-search-bar {
   display: flex;
   flex-direction: column;
