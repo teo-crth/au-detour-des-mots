@@ -97,6 +97,9 @@ const SearchPage = () => {
                 </div>
                 {!isMobile ?
                     <aside className="sidebar">
+                        <div className="total-books">
+                            <h3>Total des livres trouvés : {totalBooks}</h3>
+                        </div>
                         <div className="filter-item">
                             <h3>Catégories :</h3>
                             <div className="checkbox-group">
@@ -136,6 +139,9 @@ const SearchPage = () => {
                     : null}
                 {isFilterOpen ?
                     <aside className="sidebar">
+                        <div className="total-books">
+                            <h3>Total des livres trouvés : {totalBooks}</h3>
+                        </div>
                         <div className="filter-item">
                             <h3>Catégories :</h3>
                             <div className="checkbox-group">
@@ -173,46 +179,6 @@ const SearchPage = () => {
                         </div>
                     </aside>
                     : null}
-
-                <aside className="sidebar">
-                    <div className="total-books">
-                        <h3>Total des livres trouvés : {totalBooks}</h3>
-                    </div>
-                    <div className="filter-item">
-                        <h3>Catégories :</h3>
-                        <div className="checkbox-group">
-                            {categories.map((category) => (
-                                <div className="containerInput" key={category}>
-                                    <input
-                                        type="checkbox"
-                                        value={category}
-                                        checked={selectedCategories.includes(category)}
-                                        onChange={() => handleCategoryChange(category)}
-                                    />
-                                    <label className='label-categoriesFilter'>{category} <span className='numberOfBooks'>({getCategoryCount(category)})</span></label>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="filter-item">
-                        <h3>Notes :</h3>
-                        <div className="checkbox-group">
-                            {[0, 1, 2, 3, 4, 5].map((star) => (
-                                <label key={star}>
-                                    <input
-                                        type="checkbox"
-                                        value={star}
-                                        checked={selectedStars.includes(star)}
-                                        onChange={() => handleStarChange(star)}
-                                    />
-                                    {star} étoile{star > 1 ? 's' : ''} <span className='numberOfBooks'>({getStarCount(star)})</span>
-                                </label>
-                            ))}
-                        </div>
-                    </div>
-
-                </aside>
-
                 <main className="main-content">
                     <SearchBar />
                 </main>
