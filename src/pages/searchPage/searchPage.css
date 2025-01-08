@@ -147,7 +147,8 @@ input[type="checkbox"]:checked {
 .dark-mode .filter-item,
 .dark-mode .selected-filters,
 .dark-mode label,
-.dark-mode .main-content {
+.dark-mode .main-content, 
+.total-books {
     background-color: var(--bg-dark-bookcard);
     color: #fff;
 }
