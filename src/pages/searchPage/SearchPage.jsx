@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import './searchPage.css';
 import SearchBar from '../../components/searchBar/SearchBar';
 import { AppContext } from '../../context/context';
@@ -41,7 +41,7 @@ const SearchPage = () => {
                 (book.volumeInfo.categories || []).includes(category)
             ).length;
         }
-        return 0;  // Return 0 if resultFetch is null or not an array
+        return 0;
     };
 
     // Calculate number of books in each star rating
@@ -52,14 +52,20 @@ const SearchPage = () => {
                 return rating === star;
             }).length;
         }
-        return 0;  // Return 0 if resultFetch is null or not an array
+        return 0;
     };
+
+    // Get total number of books in the current search result
+    const totalBooks = filteredBooks.length;
 
     return (
         <div className="search-page">
             <h1 className="title">Rechercher et filtrer les livres</h1>
             <div className="content">
                 <aside className="sidebar">
+                    <div className="total-books">
+                        <h3>Total des livres trouvés : {totalBooks}</h3>
+                    </div>
                     <div className="filter-item">
                         <h3>Catégories :</h3>
                         <div className="checkbox-group">
@@ -79,7 +85,6 @@ const SearchPage = () => {
                     <div className="filter-item">
                         <h3>Notes :</h3>
                         <div className="checkbox-group">
-                            {/* Display all available star ratings */}
                             {[0, 1, 2, 3, 4, 5].map((star) => (
                                 <label key={star}>
                                     <input
@@ -93,6 +98,7 @@ const SearchPage = () => {
                             ))}
                         </div>
                     </div>
+
                 </aside>
 
                 <main className="main-content">
