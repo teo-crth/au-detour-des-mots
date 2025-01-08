@@ -108,6 +108,18 @@ input[type="checkbox"]:checked {
     font-size: 1rem;
 }
 
+/* Total books */
+.total-books {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid var(--yellow-dark);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
 /* Section droite */
 .main-content {
     flex: 1; /* Reste de la largeur */
