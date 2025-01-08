@@ -17,9 +17,6 @@ const sectionSuggestionBook = ({ book }) => {
         const randomIndex2 = Math.floor(Math.random() * sameBook.length) + 1;
         const randomIndex3 = Math.floor(Math.random() * sameBook.length) + 1;
         const sameBookLimited = [sameBook[randomIndex1], sameBook[randomIndex2], sameBook[randomIndex3]];
-        if (sameBook.length < 3) {
-        sameBookLimited = sameBook=[sameBook.lenght];
-        }
 
         return (
             <div>
