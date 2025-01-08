@@ -114,6 +114,21 @@ input[type="checkbox"]:checked {
     font-size: 1rem;
 }
 
+/* Total books */
+.total-books {
+    padding: 20px;
+    background-color: white;
+    border: 1px solid var(--yellow-light);
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.total-books h3 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    color: var(--yellow-dark);
+}
+
 /* Section droite */
 .main-content {
     flex: 1;
