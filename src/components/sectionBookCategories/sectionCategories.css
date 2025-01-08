@@ -5,7 +5,7 @@ section {
     align-items: center;
     padding: 20px;
     background-color: var(--background-color);
-    width: 80%;
+    width: 100%;
 }
 
 .container-book-categories {
@@ -24,7 +24,7 @@ section {
     align-items: center;
     margin: 5px;
     padding: 5px 10px;
-    font-size: 0.4rem;
+    font-size: 0.6rem;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
@@ -66,6 +66,10 @@ section {
         margin: 10px;
         padding: 10px 15px;
         font-size: 1rem;
+    }
+
+    .section {
+        width: 80%;
     }
 }
 

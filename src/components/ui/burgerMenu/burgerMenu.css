@@ -12,6 +12,12 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.dark-mode .container-burgerMenu {
+    background-color: var(--text-dark);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
 .nav-mobile {
     display: flex;
     flex-direction: column;
