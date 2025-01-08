@@ -63,7 +63,7 @@ const SearchPage = () => {
             <h1 className="title">Rechercher et filtrer les livres</h1>
             <div className="content">
                 <aside className="sidebar">
-                <div className="total-books">
+                    <div className="total-books">
                         <h3>Total des livres trouvés : {totalBooks}</h3>
                     </div>
                     <div className="filter-item">
@@ -98,7 +98,7 @@ const SearchPage = () => {
                             ))}
                         </div>
                     </div>
-                    
+
                 </aside>
 
                 <main className="main-content">
