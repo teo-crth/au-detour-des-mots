@@ -16,7 +16,7 @@ const BookCard = ({ array }) => {
     const handleHeartClick = (book) => {
         console.log('heart clicked');
         // Retirer le livre du tableau
-        setIsLiked(isLiked.filter((item) => item.id !== book?.id)); // Créer un nouveau tableau sans le livre cliqué
+        setIsLiked(isLiked.filter((item) => item?.id !== book.id)); // Créer un nouveau tableau sans le livre cliqué
 
         // Mettre à jour le local storage
         localStorage.setItem('isLiked', JSON.stringify(isLiked.filter((item) => item.id !== book?.id)));
@@ -44,7 +44,7 @@ const BookCard = ({ array }) => {
                 {array.map((book) => {
                     const averageRating = book?.volumeInfo?.averageRating || 0;  // Default to 0 if no rating
                     return (
-                        <div className='book-card' key={book?.id}>
+                        <div className='book-card' key={book.id}>
                             {isInArray(book) ?
                                 <span className='book-card__heart' onClick={() => handleHeartClick(book)}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
@@ -52,7 +52,7 @@ const BookCard = ({ array }) => {
                                     </svg>
                                 </span>
                                 : null}
-                            <Link to={`/au-detour-des-mots/livre/${book?.id}`} className="book-link">
+                            <Link to={`/au-detour-des-mots/livre/${book.id}`} className="book-link">
                                 <div className="container-img">
                                     <img src={book?.volumeInfo?.imageLinks?.thumbnail || placeholder} alt={`Image du livre ${book?.volumeInfo?.title}`} />
                                 </div>
