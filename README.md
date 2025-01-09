@@ -16,7 +16,7 @@
 
     React : Bibliothèque JavaScript pour créer l'interface utilisateur.
     React Router : Gestion des routes pour une navigation fluide.
-    Google Books API : Source des données pour les livres.
+    Google Books API : Source des données pour les livres. [LIEN API](https://developers.google.com/books/docs/v1/getting_started)
     CSS Modules : Styles personnalisés pour un design moderne.
 
 ## 🚀 Comment démarrer
