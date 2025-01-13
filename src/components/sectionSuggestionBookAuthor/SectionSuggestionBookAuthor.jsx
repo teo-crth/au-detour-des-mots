@@ -5,9 +5,16 @@ import './sectionSuggestionBookAuthor.css'
 
 const sectionSuggestionBookAuthor = ({ book }) => {
 
+    // filtrer allbooksarray pour ne pas avoir deux livres identique dans le tableau
+    const allBooksArrayUnique = allBooksArray.filter((value, index, self) =>
+        index === self.findIndex((t) => (
+            t.id === value.id
+        ))
+    );    
+
     const catBook = book.volumeInfo?.authors[0];
 
-    const sameBook = allBooksArray.filter((books) =>
+    const sameBook = allBooksArrayUnique.filter((books) =>
         books.volumeInfo.authors == catBook).filter((books) =>
             books.id != book.id);
 

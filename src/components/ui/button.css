@@ -20,6 +20,8 @@
     background-color: white;
     color: gray;
     border: none;
+    border-radius: 5px;
+    margin-bottom: 1rem;
 }
 
 .dark-mode .book-card-button-already-liked {

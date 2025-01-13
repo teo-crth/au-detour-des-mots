@@ -73,7 +73,7 @@ const BookPage = () => {
                         <div className="authors-elements">
                             {book?.volumeInfo?.authors.map((author) => {
                                 return (
-                                    <p className='paragraph-info-book'><strong>{author}</strong></p>
+                                    <p key={author} className='paragraph-info-book'><strong>{author}</strong></p>
                                 );
                             })}
                         </div>

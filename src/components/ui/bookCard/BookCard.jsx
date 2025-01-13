@@ -42,6 +42,7 @@ const BookCard = ({ array }) => {
 
             <div className='container-books-liked'>
                 {array.map((book) => {
+                    console.log(book);
                     const averageRating = book?.volumeInfo?.averageRating || 0;  // Default to 0 if no rating
                     return (
                         <div className='book-card' key={book.id}>
@@ -62,7 +63,7 @@ const BookCard = ({ array }) => {
                                     <div className="container-author-name">
                                         {book?.volumeInfo?.authors?.map((author) => {
                                             return (
-                                                <p className='author-name'><strong>{author}</strong></p>
+                                                <p key={author} className='author-name'><strong>{author}</strong></p>
                                             );
                                         })}
                                     </div>
