@@ -5,27 +5,42 @@ import './sectionSuggestionBookAuthor.css'
 
 const sectionSuggestionBookAuthor = ({ book }) => {
 
-    // filtrer allbooksarray pour ne pas avoir deux livres identique dans le tableau
+
+    // Filtrer allBooksArray pour ne pas avoir de doublons et exclure le livre actuel
     const allBooksArrayUnique = allBooksArray.filter((value, index, self) =>
-        index === self.findIndex((t) => (
-            t.id === value.id
-        ))
-    );    
+        index === self.findIndex((t) => t.id === value.id)
+    ).filter((bookItem) => bookItem.id !== book.id); // Exclure le livre actuel
 
-    const catBook = book.volumeInfo?.authors[0];
+    const authorsOfBook = book.volumeInfo?.authors || [];
 
-    const sameBook = allBooksArrayUnique.filter((books) =>
-        books.volumeInfo.authors == catBook).filter((books) =>
-            books.id != book.id);
+    // Comparer les auteurs entre deux livres
+    const compareAuthors = (bookAuthors) => {
+        return bookAuthors.filter(author => authorsOfBook.includes(author)).length;
+    };
 
-    const sameBookLimited = sameBook.slice(0, 3);
+    let sameAuthorBooks = [];
+
+    // Trouver tous les livres ayant le même nombre d'auteurs communs
+    for (let i = authorsOfBook.length; i >= 1; i--) {
+        const filteredBooks = allBooksArrayUnique.filter((bookItem) => {
+            const commonAuthorsCount = compareAuthors(bookItem?.volumeInfo?.authors || []);
+            return commonAuthorsCount === i;
+        });
+
+        sameAuthorBooks = sameAuthorBooks.concat(filteredBooks);
+
+        // Si nous avons trouvé des livres, on peut arrêter ici
+        if (sameAuthorBooks.length > 0) {
+            break;
+        }
+    }
 
     return (
         <div>
-            {sameBookLimited.length > 0 ? (
+            {sameAuthorBooks.length > 0 ? (
                 <>
                     <h2 className='suggestBookTitle'>Livres du même auteur</h2>
-                    <BookCard array={sameBookLimited} />
+                    <BookCard array={sameAuthorBooks} />
                 </>
             ) : (
                 <h2 className='suggestBookTitle'>Aucun autre livre de cet auteur n'est disponible.</h2>
