@@ -13,7 +13,7 @@ const NoFoundPage = () => {
     }
     return (
         <>
-            <div className='container'>
+            <div className='container-404'>
                 <h1>Page introuvable</h1>
                 <iframe src="https://giphy.com/embed/jU9OCvBiO1besabUKU" width="480" height="269" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
                 <h2>Vous êtes perdu ? Félicitation vous êtes un aventurier !</h2>

@@ -84,6 +84,14 @@
   color: #4b4b4b;
 }
 
+.dark-mode .book-page .paragraph-info-book {
+  color: white;
+}
+
+.dark-mode .book-page h1 {
+  color: white;
+}
+
 .container-resume {
   width: 100%;
   display: flex;
