@@ -21,16 +21,17 @@ const sectionSuggestionBook = ({ book }) => {
             return (<h2 className='suggestBookTitle'>Aucune catégorie n'a été trouvée</h2>);
         }
 
+        // Selectionner 3 livres de la même catégorie
+        const sameBookLimited = [];
         for (let i = 0; i < 3; i++) {
             if (sameBook[i].id === book.id) {
-                sameBook.splice(i, 1);
+                sameBook.splice(i, 1); 
             }
+
+            const randomIndex = Math.floor(Math.random() * sameBook.length) + 1;
+            sameBookLimited.push(sameBook[randomIndex]);
         }
 
-        const randomIndex1 = Math.floor(Math.random() * sameBook.length) + 1;
-        const randomIndex2 = Math.floor(Math.random() * sameBook.length) + 1;
-        const randomIndex3 = Math.floor(Math.random() * sameBook.length) + 1;
-        const sameBookLimited = [sameBook[randomIndex1], sameBook[randomIndex2], sameBook[randomIndex3]];
 
         return (
             <div>
