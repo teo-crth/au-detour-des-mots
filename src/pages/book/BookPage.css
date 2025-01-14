@@ -10,9 +10,9 @@
 .container-the-book {
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: start;
-  align-items: start;
+  align-items: center;
   flex-wrap: wrap;
   position: relative;
 }
@@ -24,7 +24,7 @@
   justify-content: start;
   align-items: start;
   margin-bottom: 10px;
-  width: 70%;
+  width: 95%;
   position: relative;
 }
 
@@ -33,7 +33,7 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  width: 30%;
+  width: 60%;
   position: relative;
 }
 
@@ -123,4 +123,20 @@
 
 .book-card-button:hover {
     background-color: hsl(33, 100%, 50%);
+}
+
+@media screen and (min-width: 768px) {
+  .container-the-book {
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+  }
+
+  .container-img-bookPage {
+    width: 30%;
+  }
+
+  .container-book-info {
+    width: 70%;
+  }
 }
